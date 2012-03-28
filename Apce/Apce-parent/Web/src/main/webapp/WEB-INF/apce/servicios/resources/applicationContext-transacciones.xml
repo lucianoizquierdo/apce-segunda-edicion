@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+ 
+    	<!--  #########################################################  -->
+	<!--  DEFINICIÓN DE LOS GESTORES DE TRANSACCIONES  -->
+	<!--  #########################################################  -->
+ 
+<beans>	
+	<bean id="transactionManagerBDEAndExt" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	        <property name="dataSource"><ref bean="dataSourceBDEAndExt"/></property>
+	   </bean> 
+	   <bean id="transactionManagerBDEAragon" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource"><ref bean="dataSourceBDEAragon"/></property>
+	   </bean> 
+	   <bean id="transactionManagerBDEBaleares" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	        <property name="dataSource"><ref bean="dataSourceBDEBaleares"/></property>
+	   </bean> 
+	   <bean id="transactionManagerBDECanarias" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	        <property name="dataSource"><ref bean="dataSourceBDECanarias"/></property>
+	   </bean> 
+	   <bean id="transactionManagerBDECatalunya" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	        <property name="dataSource"><ref bean="dataSourceBDECatalunya"/></property>
+	   </bean>
+	   <bean id="transactionManagerBDENoroeste" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	        <property name="dataSource"><ref bean="dataSourceBDENoroeste"/></property>
+	   </bean> 
+	
+	<bean id="defaultTxAttributes" class="org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource">
+		<property name="properties">
+			<props>
+			<!--Modificaciones:
+           		PROPAGATION_REQUIRED indica que, si no hay una transacción iniciada, inicia una. 
+				PROPAGATION_REQUIRES_NEW crea una transacción nueva, con independencia de que ya existiera una. 
+				Consultas:
+				PROPAGATION_SUPPORTS se asocia a una transacción si existe. En caso contrario se ejecuta sin transacción. 
+				PROPAGATION_NEVER. Nunca se ejecuta transaccionalmente. Si existiera una, produciría una excepción.             
+            -->
+	            <prop key="update*">PROPAGATION_REQUIRED, -GeneralDAOException</prop>
+	            <prop key="*">PROPAGATION_REQUIRED, ISOLATION_DEFAULT, readOnly</prop>
+            </props>
+		</property>
+	</bean>
+</beans>  
