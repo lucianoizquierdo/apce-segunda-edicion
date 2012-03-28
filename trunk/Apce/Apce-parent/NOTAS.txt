@@ -1,0 +1,17 @@
+- 21/12/2011
+
+Estoy creando la tabla usuarios y la tabla sucursales, cabe destacar por las dudas que un mismo usuario
+puede estar dado de alta para todas las sucursales.
+Y que en la tabla sucursal el campo gerente general se corresponde con la tabla usuarios, para recuperar
+todos los datos del gerente general de la sucursal.
+
+- 02/01/2012
+
+Voy a utilizar solo una base de datos, para tener a todas las sucursales juntas.
+Creo que no es lo mas recomendable pero teniendo en cuenta que este es un proyecto para la facultad
+el cual va a tener poca informacion, me parece que esta bien.
+En toda las tablas que tengan informes, o que tengan que ser diferenciadas por sucursal, agregare
+una columna mas donde ira el idSucursal.
+
+src\main\resources
+classpath*:/**/applicationContextt-dao.xml

@@ -1,0 +1,49 @@
+#########################################
+############ ESQUEMA PUBLIC #############
+#########################################
+---------------------------------------usuarios-----------------------------------------------------
+-- Table: usuarios
+
+-- DROP TABLE usuarios;
+
+CREATE TABLE usuarios
+(
+  "idusuario" integer NOT NULL,
+  nombre text,
+  apellido text,
+  "aliasusuario" text,
+  dni numeric,
+  "idsucursal" smallint,
+  fecha_nacimiento date,
+  telefono numeric,
+  direccion text,
+  pass text,
+  CONSTRAINT usuarios_pkey PRIMARY KEY ("idUsuario"),
+  CONSTRAINT "usuarios_idSucursal_fkey" FOREIGN KEY ("idSucursal")
+      REFERENCES sucursales ("idSucursal") MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE usuarios OWNER TO postgres;
+
+--------------------------------------sucursales---------------------------------------------------
+-- Table: sucursales
+
+-- DROP TABLE sucursales;
+
+CREATE TABLE sucursales
+(
+  "idsucursal" smallint NOT NULL,
+  ciudad text,
+  provincia text,
+  direccion text,
+  "gerente_general" integer,
+  CONSTRAINT sucursales_pkey PRIMARY KEY ("idSucursal")
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE sucursales OWNER TO postgres;
+---------------------------------------------------------------------------------------------------
