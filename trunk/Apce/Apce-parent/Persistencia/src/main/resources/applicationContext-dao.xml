@@ -92,7 +92,6 @@
 		<prop key="hibernate.dbcp.timeout">${hibernate.dbcp.timeout}</prop>
 		<prop key="hibernate.dbcp.max_statements">${hibernate.dbcp.max_statements}</prop> -->
 		<!-- <prop key="hibernate.dbcp.idle_test_period">${hibernate.dbcp.idle_test_period}</prop> -->
-		<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
 	<!-- 	<prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>
 		<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> -->
 	</props>

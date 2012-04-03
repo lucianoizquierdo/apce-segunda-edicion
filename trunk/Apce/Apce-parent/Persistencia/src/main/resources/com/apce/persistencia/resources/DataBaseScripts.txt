@@ -1,6 +1,18 @@
 #########################################
 ############ ESQUEMA PUBLIC #############
 #########################################
+---------------------------------------usuarios secuencer -----------------------------------------
+-- Sequence: usuarios_seq
+
+-- DROP SEQUENCE usuarios_seq;
+
+CREATE SEQUENCE usuarios_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE usuarios_seq OWNER TO postgres;
 ---------------------------------------usuarios-----------------------------------------------------
 -- Table: usuarios
 
@@ -8,25 +20,26 @@
 
 CREATE TABLE usuarios
 (
-  "idUsuario" integer NOT NULL,
+  "idusuario" integer NOT NULL  DEFAULT nextval('usuarios_seq'),
   nombre text,
   apellido text,
-  "aliasUsuario" text,
+  "aliasusuario" text,
   dni numeric,
-  "idSucursal" smallint,
+  "idsucursal" smallint,
   fecha_nacimiento date,
   telefono numeric,
   direccion text,
   pass text,
-  CONSTRAINT usuarios_pkey PRIMARY KEY ("idUsuario"),
-  CONSTRAINT "usuarios_idSucursal_fkey" FOREIGN KEY ("idSucursal")
-      REFERENCES sucursales ("idSucursal") MATCH SIMPLE
+  CONSTRAINT usuarios_pkey PRIMARY KEY ("idusuario"),
+  CONSTRAINT "usuarios_idSucursal_fkey" FOREIGN KEY ("idsucursal")
+      REFERENCES sucursales ("idsucursal") MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 )
 WITH (
   OIDS=FALSE
 );
 ALTER TABLE usuarios OWNER TO postgres;
+
 
 --------------------------------------sucursales---------------------------------------------------
 -- Table: sucursales

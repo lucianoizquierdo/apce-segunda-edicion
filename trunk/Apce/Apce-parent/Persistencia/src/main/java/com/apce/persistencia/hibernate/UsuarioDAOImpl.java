@@ -20,6 +20,7 @@ public class UsuarioDAOImpl extends BaseDaoImpl implements UsuarioDAO{
 
 	public void altaUsuario(Usuario usu) {
 		// TODO Auto-generated method stub
+		getHibernateTemplate().save(usu);
 		
 	}
 
@@ -46,7 +47,7 @@ public class UsuarioDAOImpl extends BaseDaoImpl implements UsuarioDAO{
 
 	public boolean existeUser(String alias, Integer idSucursal) {
 		// TODO Auto-generated method stub
-		List<Usuario> usuarios = getHibernateTemplate().find("select u from Usuario u where u.aliasUsuario = " + "'luckyzener'" +  "AND u.idSucursal = " + idSucursal);
+		List<Usuario> usuarios = getHibernateTemplate().find("select u from Usuario u where u.aliasUsuario = " +  "'" + alias + "'" +  "AND u.idSucursal = " + "'" +  idSucursal + "'");
 		
 		if(usuarios.size() != 0)
 			return true;
