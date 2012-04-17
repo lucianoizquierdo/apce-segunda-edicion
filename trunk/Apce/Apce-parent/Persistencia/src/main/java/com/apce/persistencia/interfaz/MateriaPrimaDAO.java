@@ -14,6 +14,6 @@ public interface MateriaPrimaDAO extends BaseDAO {
 	
 	public void getMateriaPrima(Integer idMateriaPrima);
 	
-	
+	public boolean existeMateriaPrima(String codigoMateriaPrima);
 
 }
