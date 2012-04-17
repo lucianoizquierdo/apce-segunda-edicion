@@ -55,7 +55,12 @@
 			<tr>
 				<td><form:input path="aliasUsuario" /></td>
 			</tr>
-			
+			<tr>
+				<td>Fecha de Nacimiento:<FONT color="red"><form:errors path="fecha_nacimiento" /></FONT></td>
+			</tr>
+			<tr>
+				<td><form:input path="fecha_nacimiento" /></td>
+			</tr>
 			<tr>
 				<td>Password:<FONT color="red"><form:errors path="pass" /></FONT></td>
 			</tr>

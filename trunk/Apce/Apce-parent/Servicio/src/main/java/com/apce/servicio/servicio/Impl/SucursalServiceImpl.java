@@ -30,21 +30,9 @@ public class SucursalServiceImpl extends BaseServiceImpl implements SucursalServ
 	}
 
 	@Override
-	public void bajaSucrusal(Integer idSucursal) {
-		// TODO Auto-generated method stub
-		dao.bajaSucrusal(idSucursal);
-	}
-
-	@Override
 	public void modificarSurucsal(Sucursal sucursal) {
 		// TODO Auto-generated method stub
 		dao.modificarSurucsal(sucursal);
-	}
-
-	@Override
-	public void modificarSurucsal(Integer idSucursal) {
-		// TODO Auto-generated method stub
-		dao.modificarSurucsal(idSucursal);
 	}
 
 }

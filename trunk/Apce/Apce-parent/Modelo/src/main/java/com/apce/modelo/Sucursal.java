@@ -15,10 +15,12 @@ public class Sucursal {
 	private String 	provincia;
 	private String 	direccion;
 	private String 	gerenteGeneral;
+	private Integer telefono;
+	private boolean isActiva;
+	
 	
 	@Id
 	@GeneratedValue
-	
 	public Integer getIdSucursal() {
 		return idSucursal;
 	}
@@ -50,6 +52,20 @@ public class Sucursal {
 	}
 	public void setGerenteGeneral(String gerenteGeneral) {
 		this.gerenteGeneral = gerenteGeneral;
+	}
+	
+	@Column(name="activa")
+	public boolean isActiva() {
+		return isActiva;
+	}
+	public void setActiva(boolean isActiva) {
+		this.isActiva = isActiva;
+	}
+	public Integer getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(Integer telefono) {
+		this.telefono = telefono;
 	}
 	
 	

@@ -10,4 +10,6 @@ public interface MateriaPrimaService extends BaseService {
 	
 	public void modificarMateriaPrima(MateriaPrima matPrim);
 
+	public boolean existeMateriaPrima(String codigoMateriaPrima);
+
 }

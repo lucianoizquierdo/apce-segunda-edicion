@@ -1,46 +1,53 @@
 package com.apce.modelo;
 
-import java.util.Date;
 
+
+
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="usuarios")
 public class Usuario {
 	
-	private Integer 	idUsuario;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "usuarios_seq") 
+    @SequenceGenerator(name = "usuarios_seq", sequenceName = "usuarios_seq")
+	private Integer 	idusuario;
 	private String 		nombre;
 	private String 		apellido;
 	private String 		aliasUsuario; 
 	private Integer 	dni;
 	private Integer 	idSucursal;
-	private Date 		fechaNacimiento;
+	private Date 		fecha_nacimiento;
 	private Integer 	telefono;
 	private String 		direccion;
 	private String 		pass;
+	@Column(name="activo")
 	private Boolean 	isActivo;
 
-	@Id
-	@GeneratedValue
-	@Column(name="idUsuario")
+	
 	public Integer getIdUsuario() {
-		return idUsuario;
+		return idusuario;
+	}
+	public void setIdUsuario(Integer idUsuario) {
+		this.idusuario = idUsuario;
 	}
 	
-	@Column(name="activo")
 	public Boolean getIsActivo() {
 		return isActivo;
 	}
+
 	public void setIsActivo(Boolean isActivo) {
 		this.isActivo = isActivo;
 	}
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
-	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -71,13 +78,11 @@ public class Usuario {
 	public void setIdSucursal(Integer idSucursal) {
 		this.idSucursal = idSucursal;
 	}
-	
-	@Column(name="fecha_nacimiento")
-	public Date getFechaNacimiento() {
-		return fechaNacimiento;
+	public Date getFecha_nacimiento() {
+		return this.fecha_nacimiento;
 	}
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
+	public void setFecha_nacimiento(Date f) {
+		this.fecha_nacimiento = f;
 	}
 	public Integer getTelefono() {
 		return telefono;

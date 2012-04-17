@@ -24,8 +24,11 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
                 <entry key="/login.do">
                     <ref bean="LoginFormController" />
                 </entry>
-                  <entry key="/registracion.do">
+                <entry key="/registracion.do">
                     <ref bean="RegistracionFormController" />
+                </entry>
+                <entry key="/altaMateriasPrimas.do">
+                    <ref bean="MateriasPrimasFormController" />
                 </entry>
             </map>
         </property>
@@ -71,13 +74,37 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
         </property>
         <property name="formView">
             <value>/WEB-INF/jsp/login/registracionForm.jsp</value>
-          <!--   <value>/WEB-INF/jsp/login/loginForm.jsp</value>  -->
         </property>
         <property name="successView">
         	<value>/WEB-INF/jsp/login/registracionSuccess.jsp</value>
         </property>  
     </bean>
     <bean id="RegistracionFormValidator" class="com.apce.web.validator.RegistracionFormValidator" />
+    
+      <bean id="MateriasPrimasFormController"
+        class="com.apce.web.controller.MateriasPrimasFormController">
+        <property name="sessionForm">
+            <value>true</value>
+        </property>
+        <property name="validator">
+        	<bean class="com.apce.web.validator.MateriaPrimaFormValidator"></bean>
+        </property>
+        <property name="commandName">
+            <value>materiaPrimaForm</value>
+        </property>
+        <property name="commandClass">
+            <value>com.apce.web.form.MateriaPrimaForm</value>
+        </property>
+        <property name="formView">
+          <!--   <value>/WEB-INF/jsp/MateriasPrimas/altaMateriaPrima.jsp</value> -->
+           <value>/WEB-INF/jsp/materiasprimas/altaMateriaPrima.jsp</value>
+        </property>
+        <property name="successView">
+        	<!-- <value>/WEB-INF/jsp/MateriasPrimas/altaMateriaPrima.jsp</value> -->
+        	 <value>/WEB-INF/jsp/materiasprimas/altaMateriaPrima.jsp</value>
+        </property>  
+    </bean>
+    <bean id="MateriaPrimaFormValidator" class="com.apce.web.validator.MateriaPrimaFormValidator" />
     
       
 	

@@ -7,7 +7,7 @@
 		 <import resource="classpath*:applicationContext-service.xml"/>
 	
 	
-	  <bean id="prueba" class="com.apce.web.controller.Prueba"></bean>
+	
 	 	
 
 	<!-- <bean id="loginService" class="com.apce.servicio.servicio.Impl.LoginServiceImpl">
