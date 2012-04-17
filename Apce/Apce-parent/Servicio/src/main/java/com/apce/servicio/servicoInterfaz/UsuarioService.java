@@ -16,7 +16,7 @@ public interface UsuarioService extends BaseService{
 	 * @param sucursal
 	 * @return
 	 */
-	public boolean validarUsuario(String user, Integer sucursal);
+	public boolean existeUser(String aliasUsuario, Integer idSucursal);
 	
 	/**
 	 * Devuelve un usuario o null si el usuario no existe.
@@ -31,12 +31,5 @@ public interface UsuarioService extends BaseService{
 
 	public void bajaUsuario(Usuario usu) ;
 
-	public void bajaUsuario(Integer idUsuario);
-
 	public void modificarUsuario(Usuario usu);
-
-	public void modificarUsuario(Integer idusuario);
-		
-	
-	
 }

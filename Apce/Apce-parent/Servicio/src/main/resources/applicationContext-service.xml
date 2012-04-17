@@ -14,18 +14,27 @@
 
 	
 	   
-	<bean id="loginService" class="com.apce.servicio.servicio.Impl.LoginServiceImpl">
+	<bean id="usuarioService" class="com.apce.servicio.servicio.Impl.UsuarioServiceImpl">
 		<property name="dao">
 			<ref bean="usuarioDAO"/>
+		</property>
+	</bean>
+	<bean id="materiaPrimaService" class="com.apce.servicio.servicio.Impl.MateriaPrimaServiceImpl">
+		<property name="dao">
+			<ref bean="materiaPrimaDAO"/>
 		</property>
 	</bean>
 	
 	<!-- FACADE -->
 	<bean id="facadeService" class="com.apce.servicio.servicio.Impl.FacadeService">
-		<property name="loginService">
-			<ref bean="loginService" />
-		</property>  
+		<property name="usuarioService">
+			<ref bean="usuarioService" />
+		</property>
+		<property name="materiaPrimaService">
+			<ref bean="materiaPrimaService" />
+		</property>    
 	</bean>
+	
 	
 </beans>	
 	

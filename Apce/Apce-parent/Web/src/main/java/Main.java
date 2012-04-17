@@ -1,6 +1,3 @@
-import org.springframework.context.ApplicationContext;
-
-import com.apce.web.inicializacion.InicializoModulos;
 
 
 public class Main {
@@ -16,7 +13,6 @@ public class Main {
 //		CreateUser u = (CreateUser)ctx.getBean("createUser");
 //		PropertyPlaceholderConfigurer u = (PropertyPlaceholderConfigurer)ctx.getBean("propertyConfigurerJdbc");
 		
-		ApplicationContext ctx = InicializoModulos.getInstance().getApplicationContextModulos();
 		
 //		UsuarioDAO u = (UsuarioDAOImpl)ctx.getBean("usuarioDAO");
 //		LoginService l = (LoginServiceImpl)ctx.getBean("loginService");

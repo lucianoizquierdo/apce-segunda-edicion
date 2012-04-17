@@ -1,6 +1,36 @@
 #########################################
 ############ ESQUEMA PUBLIC #############
 #########################################
+-------------------------------------CREACION DE LA BASE-------------------------------------------
+
+-- Database: apce_desa
+
+-- DROP DATABASE apce_desa;
+
+CREATE DATABASE apce_desa
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'Spanish_Argentina.1252'
+       LC_CTYPE = 'Spanish_Argentina.1252'
+       CONNECTION LIMIT = -1;
+GRANT ALL ON DATABASE apce_desa TO public;
+GRANT ALL ON DATABASE apce_desa TO postgres;
+COMMENT ON DATABASE apce_desa IS 'Base de apce de desarrollo
+';
+
+---------------------------------------usuarios secuencer -----------------------------------------
+-- Sequence: usuarios_seq
+
+-- DROP SEQUENCE usuarios_seq;
+
+CREATE SEQUENCE usuarios_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE usuarios_seq OWNER TO postgres;
 ---------------------------------------usuarios-----------------------------------------------------
 -- Table: usuarios
 
@@ -8,7 +38,7 @@
 
 CREATE TABLE usuarios
 (
-  "idusuario" integer NOT NULL,
+  "idusuario" integer NOT NULL  DEFAULT nextval('usuarios_seq'),
   nombre text,
   apellido text,
   "aliasusuario" text,
@@ -17,10 +47,11 @@ CREATE TABLE usuarios
   fecha_nacimiento date,
   telefono numeric,
   direccion text,
+  activo boolean,
   pass text,
-  CONSTRAINT usuarios_pkey PRIMARY KEY ("idUsuario"),
-  CONSTRAINT "usuarios_idSucursal_fkey" FOREIGN KEY ("idSucursal")
-      REFERENCES sucursales ("idSucursal") MATCH SIMPLE
+  CONSTRAINT usuarios_pkey PRIMARY KEY ("idusuario"),
+  CONSTRAINT "usuarios_idSucursal_fkey" FOREIGN KEY ("idsucursal")
+      REFERENCES sucursales ("idsucursal") MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 )
 WITH (
@@ -28,22 +59,63 @@ WITH (
 );
 ALTER TABLE usuarios OWNER TO postgres;
 
+
+
+--------------------------------------- sucursales secuencer -----------------------------------------
+-- Sequence: usuarios_seq
+
+-- DROP SEQUENCE sucursales_seq;
+
+CREATE SEQUENCE sucursales_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE sucursales_seq OWNER TO postgres;
 --------------------------------------sucursales---------------------------------------------------
 -- Table: sucursales
 
 -- DROP TABLE sucursales;
 
+
 CREATE TABLE sucursales
 (
-  "idsucursal" smallint NOT NULL,
+  idsucursal smallint NOT NULL  DEFAULT nextval('sucursales_seq'),
   ciudad text,
   provincia text,
   direccion text,
-  "gerente_general" integer,
-  CONSTRAINT sucursales_pkey PRIMARY KEY ("idSucursal")
+  gerente_general integer,
+  activa boolean,
+  CONSTRAINT sucursales_pkey PRIMARY KEY (idsucursal)
 )
 WITH (
   OIDS=FALSE
 );
+ALTER TABLE sucursales ADD COLUMN telefono integer;
 ALTER TABLE sucursales OWNER TO postgres;
----------------------------------------------------------------------------------------------------
+GRANT ALL ON TABLE sucursales TO postgres;
+GRANT ALL ON TABLE sucursales TO public;
+---------------------------------------materias_primas-----------------------------------------------------
+-- Table: materias_primas
+
+-- DROP TABLE materias_primas;
+
+CREATE TABLE materias_primas
+(
+  codigo_materia_prima text NOT NULL,	
+  tipo text,
+  tamanio text,
+  color text,
+  descripcion text,
+  kilos integer,
+  litros integer,
+  activa boolean,
+  CONSTRAINT codigo_materia_prima PRIMARY KEY (codigo_materia_prima)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE materias_primas OWNER TO postgres;
+
+---------------------------------------

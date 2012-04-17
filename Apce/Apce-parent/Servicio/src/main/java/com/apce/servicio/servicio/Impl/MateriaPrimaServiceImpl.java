@@ -35,4 +35,10 @@ public class MateriaPrimaServiceImpl implements MateriaPrimaService {
 		
 	}
 
+	@Override
+	public boolean existeMateriaPrima(String codigoMateriaPrima) {
+		// TODO Auto-generated method stub
+		return dao.existeMateriaPrima(codigoMateriaPrima);
+	}
+
 }

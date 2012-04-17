@@ -1,17 +1,7 @@
-package com.apce.modelo;
+package com.apce.web.form;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="materias_primas")
-public class MateriaPrima {
-
-	@Id
-	@Column(name="codigo_materia_prima")
+public class MateriaPrimaForm {
+	
 	private String codigoMateriaPrima;
 	private String tipo;
 	private String tamanio;
@@ -19,17 +9,13 @@ public class MateriaPrima {
 	private String descripcion;
 	private Integer kilos;
 	private Integer litros;
-	
-	@Column(name="activa")
-	private boolean isActiva;
-	
-	
+	private boolean activa;
 	
 	public String getCodigoMateriaPrima() {
-		return this.codigoMateriaPrima;
+		return codigoMateriaPrima;
 	}
-	public void setCodigoMateriaPrima(String codigo_materia_prima) {
-		this.codigoMateriaPrima = codigo_materia_prima;
+	public void setCodigoMateriaPrima(String codigoMateriaPrima) {
+		this.codigoMateriaPrima = codigoMateriaPrima;
 	}
 	public String getTipo() {
 		return tipo;
@@ -67,16 +53,15 @@ public class MateriaPrima {
 	public void setLitros(Integer litros) {
 		this.litros = litros;
 	}
-	
 	public boolean isActiva() {
-		return isActiva;
+		return activa;
 	}
-	public void setActiva(boolean isActiva) {
-		this.isActiva = isActiva;
+	public void setActiva(boolean activa) {
+		this.activa = activa;
 	}
 	
 	
 	
-
+	
 
 }
