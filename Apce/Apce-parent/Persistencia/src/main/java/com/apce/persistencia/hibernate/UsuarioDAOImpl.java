@@ -20,12 +20,16 @@ public class UsuarioDAOImpl extends BaseDaoImpl implements UsuarioDAO{
 
 	public void altaUsuario(Usuario usu) {
 		// TODO Auto-generated method stub
+		usu.setIsActivo(true);
 		getHibernateTemplate().save(usu);
 		
 	}
 
 	public void bajaUsuario(Usuario usu) {
 		// TODO Auto-generated method stub
+		//Lo borro logicamente
+		usu.setIsActivo(false);
+		getHibernateTemplate().saveOrUpdate(usu);
 		
 	}
 
@@ -36,6 +40,7 @@ public class UsuarioDAOImpl extends BaseDaoImpl implements UsuarioDAO{
 
 	public void modificarUsuario(Usuario usu) {
 		// TODO Auto-generated method stub
+		getHibernateTemplate().saveOrUpdate(usu);
 		
 	}
 

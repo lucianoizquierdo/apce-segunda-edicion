@@ -79,6 +79,7 @@
 		<list>
 			<value>com.apce.modelo.Usuario</value>
 			<value>com.apce.modelo.Sucursal</value>
+			<value>com.apce.modelo.MateriaPrima</value>
 		</list>
 	</property>
 	<property name="hibernateProperties">
@@ -109,5 +110,6 @@
 	</bean> 
 	<bean id="usuarioDAO" class="com.apce.persistencia.hibernate.UsuarioDAOImpl" parent="baseDAO"/>
 	<bean id="sucursalDAO" class="com.apce.persistencia.hibernate.SucursalDAOImpl" parent="baseDAO"/>
+	<bean id="materiaPrimaDAO" class="com.apce.persistencia.hibernate.MateriaPrimaDAOImpl" parent="baseDAO"/>
 		
 </beans>      
