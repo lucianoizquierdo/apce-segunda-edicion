@@ -78,6 +78,7 @@
 	<property name="annotatedClasses">
 		<list>
 			<value>com.apce.modelo.Usuario</value>
+			<value>com.apce.modelo.Permiso</value>
 			<value>com.apce.modelo.Sucursal</value>
 			<value>com.apce.modelo.MateriaPrima</value>
 		</list>
