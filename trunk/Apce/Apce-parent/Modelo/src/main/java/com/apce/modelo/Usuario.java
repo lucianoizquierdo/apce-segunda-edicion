@@ -4,13 +4,19 @@ package com.apce.modelo;
 
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 @Table(name="usuarios")
@@ -31,7 +37,19 @@ public class Usuario {
 	private String 		pass;
 	@Column(name="activo")
 	private Boolean 	isActivo;
+	
+	@OneToOne
+	@NotFound(action=NotFoundAction.IGNORE)
+	@JoinColumn(name="idUsuario")
+	private Permiso permiso;
 
+	
+	public Permiso getPermiso() {
+		return permiso;
+	}
+	public void setPermiso(Permiso permiso) {
+		this.permiso = permiso;
+	}
 	
 	public Integer getIdUsuario() {
 		return idusuario;

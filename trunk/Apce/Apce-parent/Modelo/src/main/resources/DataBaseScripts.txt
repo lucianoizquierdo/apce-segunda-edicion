@@ -118,4 +118,60 @@ WITH (
 );
 ALTER TABLE materias_primas OWNER TO postgres;
 
----------------------------------------
+---------------------------------------ROLES----------------------------------------------------------
+-- Table: roles
+
+-- DROP TABLE roles;
+
+CREATE TABLE roles
+(
+  "id_rol" smallint NOT NULL,
+  descripcion text,
+  CONSTRAINT roles_pkey PRIMARY KEY ("id_rol")
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE roles OWNER TO postgres;
+COMMENT ON TABLE roles IS 'tabla de roles';
+--------------------------------------PERFILES---------------------------------------------------------
+-- Table: perfiles
+
+-- DROP TABLE perfiles;
+
+CREATE TABLE perfiles
+(
+  "id_perfil" smallint NOT NULL,
+  descripcion text,
+  CONSTRAINT perfiles_pkey PRIMARY KEY ("id_perfil")
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE perfiles OWNER TO postgres;
+--------------------------------------PERMISOS---------------------------------------------------------
+-- Table: permisos
+
+-- DROP TABLE permisos;
+
+CREATE TABLE permisos
+(
+  idusuario integer NOT NULL,
+  "id_rol" smallint,
+  "id_perfil" smallint,
+  CONSTRAINT permisos_pkey PRIMARY KEY (idusuario),
+  CONSTRAINT "permisos_id_perfil_fkey" FOREIGN KEY ("id_perfil")
+      REFERENCES perfiles ("id_perfil") MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT "permisos_id_rol_fkey" FOREIGN KEY ("id_rol")
+      REFERENCES roles ("id_rol") MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT permisos_idusuario_fkey FOREIGN KEY (idusuario)
+      REFERENCES usuarios (idusuario) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE permisos OWNER TO postgres;
+-------------------------------------
