@@ -10,8 +10,7 @@ public class LoginFormController extends SimpleFormController {
     @Override
     protected ModelAndView onSubmit(Object command) throws Exception {
         LoginForm loginForm = (LoginForm) command;
-        System.out.println("Username: " + loginForm.getUsuario());
-        System.out.println("Password: " + loginForm.getPass());
+        
         return super.onSubmit(command);
     }
     

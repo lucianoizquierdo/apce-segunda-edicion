@@ -52,7 +52,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
             <value>/WEB-INF/jsp/login/loginForm.jsp</value>
         </property>
         <property name="successView">
-        	<value>/WEB-INF/jsp/login/loginSuccess.jsp</value>
+            <value>/WEB-INF/jsp/pantallaPrincipal/paginaPrincipal.jsp</value>
         </property>
     </bean>
     <bean id="LoginFormValidator" class="com.apce.web.validator.LoginFormValidator" />
