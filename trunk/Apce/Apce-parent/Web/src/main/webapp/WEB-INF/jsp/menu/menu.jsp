@@ -9,7 +9,7 @@
 </head> 
 <body>
 <script type="text/javascript" src="/Web/Js/menu.js"></script>
-<input type="button" value="Altas Materias Primas me" onclick="altaMateriaPrima('<%=request.getContextPath()%>');" />
+<input type="button" value="Altas Materias Primas" onclick="altaMateriaPrima('<%=request.getContextPath()%>');" />
 <input type="button" value="Activar nuevos usuarios" onclick="activarNuevosUsuarios('<%=request.getContextPath()%>');" />
 </body>
 </html>

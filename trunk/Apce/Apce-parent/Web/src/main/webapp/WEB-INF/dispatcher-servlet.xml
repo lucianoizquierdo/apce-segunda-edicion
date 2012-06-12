@@ -27,6 +27,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
                 <entry key="/registracion.do">
                     <ref bean="RegistracionFormController" />
                 </entry>
+                <entry key="/main.do">
+                    <ref bean="MainController" />
+                </entry>
                 <entry key="/altaMateriasPrimas.do">
                     <ref bean="MateriasPrimasFormController" />
                 </entry>
@@ -80,6 +83,32 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
         </property>  
     </bean>
     <bean id="RegistracionFormValidator" class="com.apce.web.validator.RegistracionFormValidator" />
+    
+    <bean id="MainController"
+        class="com.apce.web.controller.MainController">
+        <property name="sessionForm">
+            <value>true</value>
+        </property> 
+        <!-- 
+        <property name="validator">
+        	<bean class="com.apce.web.validator.MateriaPrimaFormValidator"></bean>
+        </property>
+         -->
+        <property name="commandName">
+            <value>mainForm</value>
+        </property>
+        <property name="commandClass">
+            <value>com.apce.web.form.MainForm</value>
+        </property>
+        <property name="formView">
+           <value>/WEB-INF/jsp/menu/menu.jsp</value>
+        </property>
+        <property name="successView">
+           <value>/WEB-INF/jsp/menu/menu.jsp</value>
+        </property>
+    </bean>
+    
+    
     
       <bean id="MateriasPrimasFormController"
         class="com.apce.web.controller.MateriasPrimasFormController">
