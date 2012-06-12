@@ -8,7 +8,7 @@
 <body>
 	<script type="text/javascript">
 	var login = "<%=request.getContextPath()%>/forms/login.do";    
-	//alert(login);
+	alert(login);
 	document.location.href = login;  
 
 	
