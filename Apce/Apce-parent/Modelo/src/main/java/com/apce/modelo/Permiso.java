@@ -12,8 +12,6 @@ public class Permiso {
 	@Id
 	private Integer idUsuario;
 	private Integer id_rol;
-	@Column(name="")
-	private Integer id_perfil;
 	
 	public Integer getIdUsuario() {
 		return idUsuario;
@@ -27,13 +25,4 @@ public class Permiso {
 	public void setIdRol(Integer idRol) {
 		this.id_rol = idRol;
 	}
-	public Integer getIdPerfil() {
-		return id_perfil;
-	}
-	public void setIdPerfil(Integer idPerfil) {
-		this.id_perfil = idPerfil;
-	}
-	
-	
-
 }
