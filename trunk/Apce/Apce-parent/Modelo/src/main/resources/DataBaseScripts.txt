@@ -49,6 +49,7 @@ CREATE TABLE usuarios
   direccion text,
   activo boolean,
   pass text,
+  rol smallint,
   CONSTRAINT usuarios_pkey PRIMARY KEY ("idusuario"),
   CONSTRAINT "usuarios_idSucursal_fkey" FOREIGN KEY ("idsucursal")
       REFERENCES sucursales ("idsucursal") MATCH SIMPLE
