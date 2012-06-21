@@ -126,13 +126,9 @@ ALTER TABLE materias_primas OWNER TO postgres;
 
 CREATE TABLE roles
 (
-  "id_rol" smallint NOT NULL,
+  id_rol smallint NOT NULL,
   descripcion text,
-  perfil smallint,
-  CONSTRAINT roles_pkey PRIMARY KEY (id_rol),
-  CONSTRAINT fk_perfil FOREIGN KEY (perfil)
-      REFERENCES perfiles (id_perfil) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
+  CONSTRAINT roles_pkey PRIMARY KEY (id_rol)
 )
 WITH (
   OIDS=FALSE
@@ -162,18 +158,59 @@ ALTER TABLE perfiles OWNER TO postgres;
 
 CREATE TABLE permisos
 (
- idusuario integer NOT NULL,
-  id_rol smallint NOT NULL,
-  CONSTRAINT pk_idusuario_and_idrol PRIMARY KEY (idusuario, id_rol),
-  CONSTRAINT permisos_id_rol_fkey FOREIGN KEY (id_rol)
-      REFERENCES roles (id_rol) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT permisos_idusuario_fkey FOREIGN KEY (idusuario)
-      REFERENCES usuarios (idusuario) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
+  id_permiso integer NOT NULL,
+  descripcion text,
+  CONSTRAINT pl_id_permiso PRIMARY KEY (id_permiso)
 )
 WITH (
   OIDS=FALSE
 );
 ALTER TABLE permisos OWNER TO postgres;
--------------------------------------
+-------------------------------------PERFIL-PERMISO------------------------------------
+-- Table: perfil_permiso
+
+-- DROP TABLE perfil_permiso;
+
+CREATE TABLE perfil_permiso
+(
+  id_perfil smallint,
+  id_permiso integer,
+  CONSTRAINT fk_id_perfil FOREIGN KEY (id_perfil)
+      REFERENCES perfiles (id_perfil) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fk_id_permiso FOREIGN KEY (id_permiso)
+      REFERENCES permisos (id_permiso) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE perfil_permiso OWNER TO postgres;
+------------------------------------ROL-PERFIL---------------------------------------------------
+-- Table: rol_perfil
+
+-- DROP TABLE rol_perfil;
+
+CREATE TABLE rol_perfil
+(
+  id_rol smallint,
+  id_perfil smallint,
+  CONSTRAINT fk_id_perfil FOREIGN KEY (id_perfil)
+      REFERENCES perfiles (id_perfil) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fk_id_rol FOREIGN KEY (id_rol)
+      REFERENCES roles (id_rol) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE rol_perfil OWNER TO postgres;
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+
+
