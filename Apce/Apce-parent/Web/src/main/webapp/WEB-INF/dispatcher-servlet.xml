@@ -22,6 +22,15 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	<property name="validatorFactory" ref="validatorFactory"></property>
 	</bean>	
 	 -->
+	 
+	 <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.Exception">/errores/friendlyError</prop>
+			</props>
+		</property>
+	</bean>
+	 
 	<bean id="validatorFactory" class="org.springmodules.validation.commons.DefaultValidatorFactory">
 		<property name="validationConfigLocations">
 			<list>
@@ -35,16 +44,16 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
         class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="urlMap">
             <map>
-                <entry key="/login.do">
+                <entry key="/login.htm">
                     <ref bean="LoginFormController" />
                 </entry>
-                <entry key="/registracion.do">
+                <entry key="/registracion.htm">
                     <ref bean="RegistracionFormController" />
                 </entry>
-                <entry key="/main.do">
+                <entry key="/main.hmt">
                     <ref bean="MainController" />
                 </entry>
-                <entry key="/altaMateriasPrimas.do">
+                <entry key="/altaMateriasPrimas.htm">
                     <ref bean="MateriasPrimasFormController" />
                 </entry>
             </map>

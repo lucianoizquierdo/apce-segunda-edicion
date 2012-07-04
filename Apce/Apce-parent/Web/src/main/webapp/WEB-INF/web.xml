@@ -38,7 +38,8 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/forms/*</url-pattern>
+		<!-- <url-pattern>/forms/*</url-pattern> -->
+		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 	
 	<!-- SERVLETS -->
