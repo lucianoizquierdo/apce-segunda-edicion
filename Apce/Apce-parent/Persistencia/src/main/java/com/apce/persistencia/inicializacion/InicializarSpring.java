@@ -3,16 +3,14 @@ package com.apce.persistencia.inicializacion;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.apce.persistencia.hibernate.UsuarioDAOImpl;
-import com.apce.persistencia.interfaz.UsuarioDAO;
-
 
 public class InicializarSpring {
 	
 	public InicializarSpring() {
 		// TODO Auto-generated constructor stub
 		//Inicializo el contexto buscando en todo el classpath
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/**/applicationContext-dao.xml");
+//		ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/**/applicationContext-dao.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/**/applicationContext-transaction.xml");
 		
 		//System.out.println("ctx: " + ctx.getBean("propertyConfigurer"));
 		//PropertyPlaceholderConfigurer a1 = (PropertyPlaceholderConfigurer) ctx.getBean("propertyConfigurer");
@@ -20,8 +18,8 @@ public class InicializarSpring {
 //		CreateUser user = (CreateUser) ctx.getBean("createUser");
 //		user.displayUser();
 		
-		UsuarioDAO u = (UsuarioDAOImpl)ctx.getBean("usuarioDAO");
-		u.existeUser("luckyzener", 1);
+//		UsuarioDAO u = (UsuarioDAOImpl)ctx.getBean("usuarioDAO");
+//		u.existeUser("luckyzener", 1);
 //		
 		
 		
