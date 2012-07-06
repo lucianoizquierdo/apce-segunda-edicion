@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,6 +11,8 @@
 <title>APCE - Login</title>
 </head>
 <body>
+<h2>${exception.customMsg}</h2>
+ 
 	<h3>Login Form</h3>
 	<FONT color="blue">
 		<h6>User Name="UserName" and password="password"</h6>
@@ -75,7 +78,7 @@
 
 function registrarse()
 {
-	var paginaRegistracion =  "<%=request.getContextPath()%>/forms/registracion.do";    
+	var paginaRegistracion =  "<%=request.getContextPath()%>/registracion.htm";    
 	//alert(paginaRegistracion);
 	document.location.href = paginaRegistracion;  
 }

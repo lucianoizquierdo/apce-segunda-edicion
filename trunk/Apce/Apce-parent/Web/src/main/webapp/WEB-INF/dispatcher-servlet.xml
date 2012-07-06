@@ -17,19 +17,25 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 		<property name="prefix" value="/jsp/"/> <property name="suffix" value=".jsp"/> 
 		</bean> -->
 		
+	 <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+	<!--   	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->    
+		<property name="prefix" value="/WEB-INF/jsp/"/> 
+		<property name="suffix" value=".jsp"/> 
+	</bean>  
+	 	
 		
 	<!-- <bean id="beanValidator" class="org.springmodules.commons.validator.DefaultBeanValidator">
 	<property name="validatorFactory" ref="validatorFactory"></property>
 	</bean>	
 	 -->
 	 
-	 <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
-				<prop key="java.lang.Exception">/errores/friendlyError</prop>
+				<prop key="java.lang.Exception">errores/friendlyError</prop>  
 			</props>
 		</property>
-	</bean>
+	</bean> 
 	 
 	<bean id="validatorFactory" class="org.springmodules.validation.commons.DefaultValidatorFactory">
 		<property name="validationConfigLocations">
@@ -74,15 +80,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
         <property name="commandClass">
             <value>com.apce.web.form.LoginForm</value>
         </property>
-        <property name="formView">
-            <value>/WEB-INF/jsp/login/loginForm.jsp</value>
+         <property name="formView">
+            <value>/login/loginForm</value>
         </property>
         <property name="successView">
-            <value>/WEB-INF/jsp/pantallaPrincipal/paginaPrincipal.jsp</value>
-        </property>
+            <value>/pantallaPrincipal/paginaPrincipal</value>
+        </property> 
     </bean>
-    
-    
     
     <bean id="RegistracionFormController"
         class="com.apce.web.controller.RegistracionFormController">
@@ -99,10 +103,10 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
             <value>com.apce.web.form.RegistracionForm</value>
         </property>
         <property name="formView">
-            <value>/WEB-INF/jsp/login/registracionForm.jsp</value>
+            <value>/login/registracionForm</value>
         </property>
         <property name="successView">
-        	<value>/WEB-INF/jsp/login/registracionSuccess.jsp</value>
+        	<value>/login/registracionSuccess</value>
         </property>  
     </bean>
     <bean id="RegistracionFormValidator" class="com.apce.web.validator.RegistracionFormValidator" />
@@ -124,10 +128,10 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
             <value>com.apce.web.form.MainForm</value>
         </property>
         <property name="formView">
-           <value>/WEB-INF/jsp/menu/menu.jsp</value>
+           <value>/menu/menu.jsp</value>
         </property>
         <property name="successView">
-           <value>/WEB-INF/jsp/menu/menu.jsp</value>
+           <value>/menu/menu.jsp</value>
         </property>
     </bean>
     
@@ -148,17 +152,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
             <value>com.apce.web.form.MateriaPrimaForm</value>
         </property>
         <property name="formView">
-          <!--   <value>/WEB-INF/jsp/MateriasPrimas/altaMateriaPrima.jsp</value> -->
-           <value>/WEB-INF/jsp/materiasprimas/altaMateriaPrima.jsp</value>
+            <value>/materiasprimas/altaMateriaPrima.jsp</value>
         </property>
         <property name="successView">
-        	<!-- <value>/WEB-INF/jsp/MateriasPrimas/altaMateriaPrima.jsp</value> -->
-        	 <value>/WEB-INF/jsp/materiasprimas/altaMateriaPrima.jsp</value>
+        	<value>/materiasprimas/altaMateriaPrima.jsp</value>
         </property>  
     </bean>
     <bean id="MateriaPrimaFormValidator" class="com.apce.web.validator.MateriaPrimaFormValidator" />
-    
-      
 	
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
