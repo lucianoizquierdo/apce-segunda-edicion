@@ -1,0 +1,239 @@
+#########################################
+############ ESQUEMA PUBLIC #############
+#########################################
+-------------------------------------CREACION DE LA BASE-------------------------------------------
+
+-- Database: apce_desa
+
+-- DROP DATABASE apce_desa;
+
+CREATE DATABASE apce_desa
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'Spanish_Argentina.1252'
+       LC_CTYPE = 'Spanish_Argentina.1252'
+       CONNECTION LIMIT = -1;
+GRANT ALL ON DATABASE apce_desa TO public;
+GRANT ALL ON DATABASE apce_desa TO postgres;
+COMMENT ON DATABASE apce_desa IS 'Base de apce de desarrollo
+';
+
+---------------------------------------usuarios secuencer -----------------------------------------
+-- Sequence: usuarios_seq
+
+-- DROP SEQUENCE usuarios_seq;
+
+CREATE SEQUENCE usuarios_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE usuarios_seq OWNER TO postgres;
+--------------------------------------- sucursales secuencer -----------------------------------------
+-- Sequence: usuarios_seq
+
+-- DROP SEQUENCE sucursales_seq;
+
+CREATE SEQUENCE sucursales_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE sucursales_seq OWNER TO postgres;
+
+--------------------------------------sucursales---------------------------------------------------
+-- Table: sucursales
+
+-- DROP TABLE sucursales;
+
+
+CREATE TABLE sucursales
+(
+  idsucursal smallint NOT NULL  DEFAULT nextval('sucursales_seq'),
+  ciudad text,
+  provincia text,
+  direccion text,
+  gerente_general integer,
+  activa boolean,
+  CONSTRAINT sucursales_pkey PRIMARY KEY (idsucursal)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE sucursales ADD COLUMN telefono integer;
+ALTER TABLE sucursales OWNER TO postgres;
+GRANT ALL ON TABLE sucursales TO postgres;
+GRANT ALL ON TABLE sucursales TO public;
+---------------------------------------usuarios-----------------------------------------------------
+-- Table: usuarios
+
+-- DROP TABLE usuarios;
+
+CREATE TABLE usuarios
+(
+  "idusuario" integer NOT NULL  DEFAULT nextval('usuarios_seq'),
+  nombre text,
+  apellido text,
+  "aliasusuario" text,
+  dni numeric,
+  "idsucursal" smallint,
+  fecha_nacimiento date,
+  telefono numeric,
+  direccion text,
+  activo boolean,
+  pass text,
+  rol smallint,
+  CONSTRAINT usuarios_pkey PRIMARY KEY ("idusuario"),
+  CONSTRAINT "usuarios_idSucursal_fkey" FOREIGN KEY ("idsucursal")
+      REFERENCES sucursales ("idsucursal") MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE usuarios OWNER TO postgres;
+
+
+
+
+
+---------------------------------------materias_primas-----------------------------------------------------
+-- Table: materias_primas
+
+-- DROP TABLE materias_primas;
+
+CREATE TABLE materias_primas
+(
+  codigo_materia_prima text NOT NULL,	
+  tipo text,
+  tamanio text,
+  color text,
+  descripcion text,
+  kilos integer,
+  litros integer,
+  activa boolean,
+  CONSTRAINT codigo_materia_prima PRIMARY KEY (codigo_materia_prima)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE materias_primas OWNER TO postgres;
+
+---------------------------------------ROLES----------------------------------------------------------
+-- Table: roles
+
+-- DROP TABLE roles;
+
+CREATE TABLE roles
+(
+  id_rol smallint NOT NULL,
+  descripcion text,
+  CONSTRAINT roles_pkey PRIMARY KEY (id_rol)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE roles OWNER TO postgres;
+COMMENT ON TABLE roles IS 'tabla de roles';
+--------------------------------------PERFILES---------------------------------------------------------
+-- Table: perfiles
+
+-- DROP TABLE perfiles;
+
+CREATE TABLE perfiles
+(
+  "id_perfil" smallint NOT NULL,
+  descripcion text,
+  controller text,
+  CONSTRAINT perfiles_pkey PRIMARY KEY ("id_perfil")
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE perfiles OWNER TO postgres;
+--------------------------------------PERMISOS---------------------------------------------------------
+-- Table: permisos
+
+-- DROP TABLE permisos;
+
+CREATE TABLE permisos
+(
+  id_permiso integer NOT NULL,
+  descripcion text,
+  CONSTRAINT pl_id_permiso PRIMARY KEY (id_permiso)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE permisos OWNER TO postgres;
+-------------------------------------PERFIL-PERMISO------------------------------------
+-- Table: perfil_permiso
+
+-- DROP TABLE perfil_permiso;
+
+CREATE TABLE perfil_permiso
+(
+  id_perfil smallint,
+  id_permiso integer,
+  CONSTRAINT fk_id_perfil FOREIGN KEY (id_perfil)
+      REFERENCES perfiles (id_perfil) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fk_id_permiso FOREIGN KEY (id_permiso)
+      REFERENCES permisos (id_permiso) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE perfil_permiso OWNER TO postgres;
+------------------------------------ROL-PERFIL---------------------------------------------------
+-- Table: rol_perfil
+
+-- DROP TABLE rol_perfil;
+
+CREATE TABLE rol_perfil
+(
+  id_rol smallint,
+  id_perfil smallint,
+  CONSTRAINT fk_id_perfil FOREIGN KEY (id_perfil)
+      REFERENCES perfiles (id_perfil) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fk_id_rol FOREIGN KEY (id_rol)
+      REFERENCES roles (id_rol) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE rol_perfil OWNER TO postgres;
+-----------------------------------USUARIO-ROL----------------------------------------------------
+-- Table: usuario_rol
+
+-- DROP TABLE usuario_rol;
+
+CREATE TABLE usuario_rol
+(
+  id_usuario integer NOT NULL,
+  id_rol smallint NOT NULL,
+  CONSTRAINT pk_id_usuario_and_pk_id_rol PRIMARY KEY (id_usuario, id_rol),
+  CONSTRAINT fk_id_rol FOREIGN KEY (id_rol)
+      REFERENCES roles (id_rol) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fk_id_usuario FOREIGN KEY (id_usuario)
+      REFERENCES usuarios (idusuario) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE usuario_rol OWNER TO postgres;
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+
+
