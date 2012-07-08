@@ -1,29 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-   	<!--  #########################################################  -->
-	<!--  DEFINICIÓN DE LOS SERVICIOS 								 --> 
-	<!--  #########################################################  -->
-	
-
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	 
-	<import resource="classpath*:/**/applicationContext-dao.xml"/>
+	 <import resource="classpath*:/**/applicationContext-dao.xml"/>
 	
-
 	
-	   
-	<bean id="usuarioService" class="com.apce.servicio.servicio.Impl.UsuarioServiceImpl">
-		<property name="dao">
-			<ref bean="usuarioDAO"/>
+	
+	
+   	<!--  #########################################################  -->
+	<!--  DEFINICIÓN DE LOS SERVICIOS 								 --> 
+	<!--  #########################################################  -->
+	 <bean id="usuarioService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+    	parent="transactionParent">
+        <property name="target">
+		<bean id="usuarioServiceImpl" class="com.apce.servicio.servicio.Impl.UsuarioServiceImpl">
+			<property name="dao">
+				<ref bean="usuarioDAO"/>
+			</property>
+		</bean>        
+        </property>
+	    <property name="transactionManager"><ref bean="transactionManager"/></property>
+   	</bean> 
+   	
+   	<bean id="materiaPrimaService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+    	parent="transactionParent">
+        <property name="target">
+        	<bean id="materiaPrimaServiceImpl" class="com.apce.servicio.servicio.Impl.MateriaPrimaServiceImpl">
+				<property name="dao">
+					<ref bean="materiaPrimaDAO"/>
+				</property>
+			</bean>
 		</property>
-	</bean>
-	<bean id="materiaPrimaService" class="com.apce.servicio.servicio.Impl.MateriaPrimaServiceImpl">
-		<property name="dao">
-			<ref bean="materiaPrimaDAO"/>
+	    <property name="transactionManager"><ref bean="transactionManager"/></property>
+   	</bean>
+   	
+   	<bean id="sucursalService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+    	parent="transactionParent">
+        <property name="target">
+        	<bean id="sucurusalServiceImpl" class="com.apce.servicio.servicio.Impl.SucursalServiceImpl">
+				<property name="dao">
+					<ref bean="sucursalDAO"/>
+				</property>
+			</bean>
 		</property>
-	</bean>
+	    <property name="transactionManager"><ref bean="transactionManager"/></property>
+   	</bean>
 	
 	<!-- FACADE -->
 	<bean id="facadeService" class="com.apce.servicio.servicio.Impl.FacadeService">
@@ -32,7 +54,11 @@
 		</property>
 		<property name="materiaPrimaService">
 			<ref bean="materiaPrimaService" />
-		</property>    
+		</property>
+		<property name="sucursalService">
+			<ref bean="sucursalService" />
+		</property>
+  
 	</bean>
 	
 	
@@ -183,16 +209,7 @@
    		<property name="gruposMoviDAO"><ref bean="gruposMoviDAOBDENoroeste" /></property>
    	</bean>		
    	
-   	 ######################################################### 
-	 DEFINICIÓN DE GESTOR TRANSACCIONES PARA CAPA SERVICIOS 
-	 Necesario si un servicio utiliza más de un DAO
-	 #########################################################     
-    	Catalunya
-    <bean id="cargaServicioBDECatalunya" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
-        <property name="target"><ref local="cargaServicioImplBDECatalunya"/></property>
-	    <property name="transactionManager"><ref bean="transactionManagerBDECatalunya"/></property>
-         <property name="transactionAttributeSource"><ref bean="defaultTxAttributes"/></property>
-   	</bean> 
+   
    	 <bean id="notaManualServicioBDECatalunya" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
         <property name="target"><ref local="notaManualServicioImplBDECatalunya"/></property>
 	    <property name="transactionManager"><ref bean="transactionManagerBDECatalunya"/></property>
