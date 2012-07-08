@@ -1,12 +1,14 @@
 package com.apce.servicio.servicio.Impl;
 
 import com.apce.servicio.servicoInterfaz.MateriaPrimaService;
+import com.apce.servicio.servicoInterfaz.SucursalService;
 import com.apce.servicio.servicoInterfaz.UsuarioService;
 
 public class FacadeService{
 
 	private static UsuarioService usuarioService;
 	private static MateriaPrimaService materiaPrimaService;
+	private static SucursalService sucursalService;
 	
 	/*private static FacadeService instance = null;
 	
@@ -36,6 +38,16 @@ public class FacadeService{
 	public void setMateriaPrimaService(MateriaPrimaService materiaPrimaService) 
 	{
 		this.materiaPrimaService = materiaPrimaService;
+	}
+	
+	public static SucursalService getSucursalService() 
+	{
+		return sucursalService;
+	}
+
+	public void setSucursalService(SucursalService sucursalService) 
+	{
+		this.sucursalService = sucursalService;
 	}
 	
 
