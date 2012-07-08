@@ -11,8 +11,6 @@
 <title>APCE - Login</title>
 </head>
 <body>
-<h2>${exception.customMsg}</h2>
- 
 	<h3>Login Form</h3>
 	<FONT color="blue">
 		<h6>User Name="UserName" and password="password"</h6>
