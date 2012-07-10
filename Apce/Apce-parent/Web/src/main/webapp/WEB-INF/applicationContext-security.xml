@@ -5,15 +5,35 @@
 
 		
 	<bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">  
-    <property name="providers">   
-        <list>  
-            <ref local="daoAuthenticationProvider"/>   
-        </list>   
-    </property>
-      
-</bean>  
+	    <property name="providers">   
+	        <list>  
+	            <ref bean="daoAuthenticationProvider"/>   
+	        </list>   
+	    </property>
+	</bean>   
 	
+	<bean id="daoAuthenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService" ref="userDetailsService"/>
+		<property name="passwordEncoder">
+			<bean class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"></bean>
+		</property>
+		<property name="saltSource">
+			<bean class="org.springframework.security.authentication.dao.ReflectionSaltSource">
+				<property name="userPropertyToUse" value="userName"/>
+			</bean>
+		</property>	
+	</bean> 
 	
+	<bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+		<property name="dataSource" ref="apce_desa_datasource"/>
+		<property name="usersByUsernameQuery">
+				<value>
+				SELECT aliasusuario, pass, activo
+				From usuarios
+				WHERE aliasusuario =?
+				</value>
+		</property>
+	</bean>	 
 	 	
 
 	

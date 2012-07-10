@@ -1,7 +1,7 @@
 - 21/12/2011
 
-Estoy creando la tabla usuarios y la tabla sucursales, cabe destacar por las dudas que un mismo usuario
-puede estar dado de alta para todas las sucursales.
+Estoy creando la tabla usuarios y la tabla sucursales, en caso de que el mismo usuario quiera pertenecer a otra sucursal, se debera
+registrar denuevo en la otra sucursal, o pedir al administrador que hago los cambios pertinetes para cambiar a ese usuario de sucursal.
 Y que en la tabla sucursal el campo gerente general se corresponde con la tabla usuarios, para recuperar
 todos los datos del gerente general de la sucursal.
 
