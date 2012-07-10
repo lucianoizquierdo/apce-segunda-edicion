@@ -1,6 +1,5 @@
 package com.apce.persistencia.inicializacion;
 
-import org.springframework.context.ApplicationContext;
 
 public class Main {
 

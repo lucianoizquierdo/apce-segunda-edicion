@@ -71,6 +71,4 @@ public class UsuarioDAOImpl extends BaseDaoImpl implements UsuarioDAO{
 			return null;
 		
 	}
-	
-
 }
