@@ -58,7 +58,7 @@ public class Usuario {
 		this.idusuario = idUsuario;
 	}
 	
-	public Boolean getIsActivo() {
+	public Boolean isActivo() {
 		return isActivo;
 	}
 
