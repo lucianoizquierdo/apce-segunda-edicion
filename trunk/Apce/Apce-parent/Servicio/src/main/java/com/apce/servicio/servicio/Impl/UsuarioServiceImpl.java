@@ -1,11 +1,16 @@
 package com.apce.servicio.servicio.Impl;
 
+import org.springframework.dao.DataAccessException;
+import org.springframework.security.userdetails.UserDetails;
+import org.springframework.security.userdetails.UserDetailsService;
+import org.springframework.security.userdetails.UsernameNotFoundException;
+
 import com.apce.modelo.Usuario;
 import com.apce.persistencia.interfaz.BaseDAO;
 import com.apce.persistencia.interfaz.UsuarioDAO;
 import com.apce.servicio.servicoInterfaz.UsuarioService;
 
-public class UsuarioServiceImpl implements UsuarioService{
+public class UsuarioServiceImpl implements UsuarioService {
 
 	private UsuarioDAO dao;
 
@@ -45,6 +50,15 @@ public class UsuarioServiceImpl implements UsuarioService{
 	public void modificarUsuario(Usuario usu) {
 		// TODO Auto-generated method stub
 		dao.modificarUsuario(usu);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String user)
+			throws UsernameNotFoundException, DataAccessException {
+		// TODO Auto-generated method stub
+		
+		dao.getUsuario(user);
+		return null;
 	}
 
 }
