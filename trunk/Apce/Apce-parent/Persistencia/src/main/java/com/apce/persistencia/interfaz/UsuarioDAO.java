@@ -8,6 +8,8 @@ public interface UsuarioDAO extends BaseDAO {
 	
 	public Usuario getUsuario(String user, String pass, Integer sucursal);
 	
+	public Usuario getUsuario(String user);
+	
 	public void altaUsuario(Usuario usu);
 	
 	public void bajaUsuario(Usuario usu);
