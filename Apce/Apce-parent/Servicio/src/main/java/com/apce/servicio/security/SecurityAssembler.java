@@ -8,7 +8,7 @@ public class SecurityAssembler {
 	
 	User buildUserFromUserEntity(Usuario userEntity) {
 
-    String username = userEntity.getNombre();
+   /* String username = userEntity.getNombre();
     String password = userEntity.getPass();
     boolean enabled = userEntity.isActivo();
     boolean accountNonExpired = userEntity.isActivo();
@@ -18,7 +18,8 @@ public class SecurityAssembler {
     User user = new User(username, password, enabled,
       accountNonExpired, credentialsNonExpired, accountNonLocked, authorities, id);
     return user;
-	  
+	 */
+		return null;
 	}
 
 }
