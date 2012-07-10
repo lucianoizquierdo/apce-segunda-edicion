@@ -1,5 +1,7 @@
 package com.apce.servicio.servicoInterfaz;
 
+import org.springframework.security.userdetails.UserDetailsService;
+
 import com.apce.modelo.Usuario;
 
 /**
@@ -7,7 +9,7 @@ import com.apce.modelo.Usuario;
  * @author lizquier
  *
  */
-public interface UsuarioService extends BaseService{
+public interface UsuarioService extends UserDetailsService, BaseService{
 	
 	/**
 	 * Devuelve true si el usuario existe para esa sucursal, de caso contrario devuelve false
