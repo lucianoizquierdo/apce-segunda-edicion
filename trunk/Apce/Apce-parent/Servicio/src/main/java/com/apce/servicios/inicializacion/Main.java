@@ -1,5 +1,7 @@
 package com.apce.servicios.inicializacion;
 
+
+
 public class Main {
 
 	/**
@@ -10,7 +12,7 @@ public class Main {
 		
 		//Inicializo Spring y sus servicios
 		new InicializarSpring();
-
+		
 	}
 
 }

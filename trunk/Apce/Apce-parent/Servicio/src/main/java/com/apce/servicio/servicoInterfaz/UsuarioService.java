@@ -9,7 +9,7 @@ import com.apce.modelo.Usuario;
  * @author lizquier
  *
  */
-public interface UsuarioService extends UserDetailsService, BaseService{
+public interface UsuarioService extends BaseService{
 	
 	/**
 	 * Devuelve true si el usuario existe para esa sucursal, de caso contrario devuelve false
