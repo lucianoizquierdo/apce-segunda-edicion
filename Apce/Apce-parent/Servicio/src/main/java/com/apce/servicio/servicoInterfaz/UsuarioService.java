@@ -1,7 +1,5 @@
 package com.apce.servicio.servicoInterfaz;
 
-import org.springframework.security.userdetails.UserDetailsService;
-
 import com.apce.modelo.Usuario;
 
 /**
