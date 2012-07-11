@@ -16,7 +16,7 @@
 		<h6>User Name="UserName" and password="password"</h6>
 	</FONT>
 	
-	<form:form commandName="loginForm" method="POST" action="j_spring_security_check">
+	<form:form commandName="loginForm" method="POST">
 		<table>
 			<tr>
 				<td>Usuario:<FONT color="red"><form:errors path="usuario" /></FONT></td>

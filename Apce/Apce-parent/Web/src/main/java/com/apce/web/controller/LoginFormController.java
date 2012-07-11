@@ -15,7 +15,8 @@ public class LoginFormController extends SimpleFormController {
         LoginForm loginForm = (LoginForm) command;
         
         //return super.onSubmit(command);
-        return new ModelAndView(new RedirectView("main.do"));
+        //return new ModelAndView(new RedirectView("main.htm"));
+        return new ModelAndView("welcome");
         
     }
 

@@ -7,7 +7,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-	var login = "<%=request.getContextPath()%>/login.htm"; 
+	var login = "<%=request.getContextPath()%>/inicio"; 
 	//alert(login);
 	document.location.href = login;  
 	</script>
