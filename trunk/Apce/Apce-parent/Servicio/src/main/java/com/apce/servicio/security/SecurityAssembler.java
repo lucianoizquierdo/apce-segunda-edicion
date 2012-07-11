@@ -1,6 +1,6 @@
 package com.apce.servicio.security;
 
-import org.springframework.security.userdetails.User;
+import org.springframework.security.core.userdetails.User;
 
 import com.apce.modelo.Usuario;
 

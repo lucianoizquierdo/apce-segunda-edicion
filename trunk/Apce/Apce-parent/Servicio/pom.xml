@@ -37,22 +37,27 @@
 		<version>0.8-SNAPSHOT</version>
 		<scope>compile</scope>
 	</dependency>
-  	<dependency>
+  	<!-- <dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring</artifactId>
 		<version>2.5</version>
 		<scope>compile</scope>
-	</dependency>
+	</dependency> -->
 	<dependency>
 		<groupId>org.apce.multimodule</groupId>
 		<artifactId>Modelo</artifactId>
 		<version>0.8-SNAPSHOT</version>
 		<scope>compile</scope>
 	</dependency>
-	<dependency>
+	<!-- <dependency>
 		<groupId>org.springframework.security</groupId>
 		<artifactId>spring-security-core</artifactId>
 		<version>2.0.7.RELEASE</version>
-	</dependency>
+	</dependency> -->
+	<dependency>
+    	<groupId>org.springframework.security</groupId>
+    	<artifactId>spring-security-core</artifactId>
+    	<version>3.1.1.RELEASE</version>
+ 	</dependency> 
   </dependencies>
 </project>
