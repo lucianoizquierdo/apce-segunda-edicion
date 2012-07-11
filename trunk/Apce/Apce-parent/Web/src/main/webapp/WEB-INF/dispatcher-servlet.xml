@@ -56,6 +56,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
                 <entry key="/registracion.htm">
                     <ref bean="RegistracionFormController" />
                 </entry>
+                <!-- <entry key="/j_spring_security_check">
+                    <ref bean="ToloController" />
+                </entry> -->
                 <entry key="/main.hmt">
                     <ref bean="MainController" />
                 </entry>
@@ -135,33 +138,74 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
         </property>
     </bean>
     
-    
-    
-      <bean id="MateriasPrimasFormController"
-        class="com.apce.web.controller.MateriasPrimasFormController">
-        <property name="sessionForm">
-            <value>true</value>
-        </property>
-        <property name="validator">
-        	<bean class="com.apce.web.validator.MateriaPrimaFormValidator"></bean>
-        </property>
-        <property name="commandName">
-            <value>materiaPrimaForm</value>
-        </property>
-        <property name="commandClass">
-            <value>com.apce.web.form.MateriaPrimaForm</value>
-        </property>
-        <property name="formView">
-            <value>/materiasprimas/altaMateriaPrima.jsp</value>
-        </property>
-        <property name="successView">
-        	<value>/materiasprimas/altaMateriaPrima.jsp</value>
-        </property>  
+    <bean id="MateriasPrimasFormController"
+      class="com.apce.web.controller.MateriasPrimasFormController">
+      <property name="sessionForm">
+          <value>true</value>
+      </property>
+      <property name="validator">
+      	<bean class="com.apce.web.validator.MateriaPrimaFormValidator"></bean>
+      </property>
+      <property name="commandName">
+          <value>materiaPrimaForm</value>
+      </property>
+      <property name="commandClass">
+          <value>com.apce.web.form.MateriaPrimaForm</value>
+      </property>
+      <property name="formView">
+          <value>/materiasprimas/altaMateriaPrima.jsp</value>
+      </property>
+      <property name="successView">
+      	<value>/materiasprimas/altaMateriaPrima.jsp</value>
+      </property>  
     </bean>
     <bean id="MateriaPrimaFormValidator" class="com.apce.web.validator.MateriaPrimaFormValidator" />
-	
+
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="/WEB-INF/messages" />
 	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 <bean id="ToloController"
+        class="com.apce.web.controller.ToloController">
+        <property name="sessionForm">
+            <value>true</value>
+        </property> 
+        <!-- 
+        <property name="validator">
+        	<bean class="com.apce.web.validator.MateriaPrimaFormValidator"></bean>
+        </property>
+         -->
+     <!--    <property name="commandName">
+            <value>mainForm</value>
+        </property>
+        <property name="commandClass">
+            <value>com.apce.web.form.MainForm</value>
+        </property>
+        <property name="formView">
+           <value>/menu/menu.jsp</value>
+        </property>
+         -->
+        <property name="successView">
+           <value>/menu/menu.jsp</value>
+        </property>
+    </bean>
 </beans>

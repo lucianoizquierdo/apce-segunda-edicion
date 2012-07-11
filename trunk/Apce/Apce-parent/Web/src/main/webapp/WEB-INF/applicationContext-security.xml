@@ -27,7 +27,7 @@
     	</user-service>
   	</authentication-provider> -->
   	
-  	<http auto-config="true">
+  <!-- 	<http auto-config="true">
 		<intercept-url pattern="/welcome*" access="ROLE_USER" />
 	</http>
  
@@ -37,19 +37,67 @@
 		<user name="mkyong" password="123456" authorities="ROLE_USER" />
 	    </user-service>
 	  </authentication-provider>
+	</authentication-manager> -->
+
+
+	
+            <!-- 
+	<authentication-manager>
+	   <authentication-provider>
+		<jdbc-user-service data-source-ref="apce_desa_datasource"
+ 
+		   	  users-by-username-query="
+		      select aliasusuario,pass, activo 
+		      from usuarios where aliasusuario=?" 
+		/>
+	   </authentication-provider>
+	</authentication-manager>  	
+  	
+  	 -->
+
+	<!-- <http auto-config="true">
+		<intercept-url pattern="/inicio*" access="ROLE_USER" />
+		<form-login login-page="/login.htm" default-target-url="/login.htm"
+			always-use-default-target="true" authentication-failure-url="/login.htm?login_error=1" />
+		<logout logout-success-url="/login.htm" />
+    </http> -->
+
+	<!-- <http auto-config="true">
+		<intercept-url pattern="/inicio**" access="ROLE_USER"/>
+		<form-login login-page="/login.htm" login-processing-url="/j_spring_security_check" default-target-url="/login.htm" 
+			always-use-default-target="true" authentication-failure-url="/login.htm?login_error=1" />
+		<logout logout-success-url="/login.htm" />
+	</http> -->
+
+	
+	<!-- <http auto-config="true">
+		<intercept-url pattern="/inicio*" access="ROLE_USER" />
+		<intercept-url pattern="/login.htm"  />
+		<intercept-url pattern="/**" access="ROLE_USER" />
+		<form-login login-page="/login.htm" default-target-url="/login.htm"
+			always-use-default-target="true" authentication-failure-url="/login.htm?login_error=1" />
+		<logout logout-success-url="/login.htm" />
+	</http> -->
+  
+  
+  <http>
+  	 <form-login
+             login-page="/login.htm"
+         authentication-failure-url="/loginError.jsp"
+             default-target-url="/authenticated/index.jsp"/>
+    <logout logout-success-url="/login.htm"/>
+    </http>
+    
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="a" password="a" authorities="ROLE_USER, ROLE_ADMIN" />
+				<user name="jimi" password="jimispassword" authorities="ROLE_USER, ROLE_ADMIN" />
+				<user name="bob" password="bobspassword" authorities="ROLE_USER" />
+			</user-service>
+		</authentication-provider>
 	</authentication-manager>
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
+  	 
   	
   	
   	
