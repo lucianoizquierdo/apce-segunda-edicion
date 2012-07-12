@@ -2,6 +2,7 @@ package com.apce.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
@@ -14,9 +15,11 @@ public class LoginFormController extends SimpleFormController {
     protected ModelAndView onSubmit(Object command) throws Exception {
         LoginForm loginForm = (LoginForm) command;
         
-        //return super.onSubmit(command);
+        //ModelAndView a = new ModelAndView();
+        
+        
         //return new ModelAndView(new RedirectView("main.htm"));
-        return new ModelAndView("welcome");
+          return super.onSubmit(command);
         
     }
 
