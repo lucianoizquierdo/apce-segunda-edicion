@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-                         "http://java.sun.com/dtd/web-app_2_3.dtd">
-<web-app>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_4.xsd" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+http://java.sun.com/xml/ns/javaee/web-app_2_4.xsd" version="2.4">
+
 	<display-name>APCE Cintas de Embalaje</display-name>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			  /WEB-INF/applicationContext-main.xml    
 		</param-value>  
-		<description>Levanto el application context que tiene importado todos
+		<!-- <description>Levanto el application context que tiene importado todos
 			los otros contextos de los demas modulos
-		</description>
+		</description> -->
 	</context-param>  
 	
 	<!-- FILTERS -->
@@ -21,7 +24,7 @@
  	<filter-mapping>
  			<filter-name>springSecurityFilterChain</filter-name>
  			<url-pattern>/*</url-pattern>
- 	</filter-mapping>
+ 	</filter-mapping> 
  	
 	<!--  
 	<context-param>
@@ -42,7 +45,7 @@
 	<!-- este listener sirve para que un usuario no se pueda logear al mismo tiempo dos veces en la apliaccion -->
 	<listener>
 		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
-	</listener>
+	</listener> 
 	
 	
 	<!-- SERVLETS -->
@@ -63,10 +66,10 @@
 	</welcome-file-list>
 	
 	<!-- TAGLIBS TAGLIB: SPRING TAGLIB: JSTL -->
-	<taglib>
+	<!-- <taglib>
 		<taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
 		<taglib-location>/WEB-INF/tld/c-1_0.tld</taglib-location>
-	</taglib>
+	</taglib> -->
 
 	
 	
