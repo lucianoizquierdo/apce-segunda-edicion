@@ -81,12 +81,10 @@
   
   
   <http>
-  	 <form-login
-             login-page="/login.htm"
-         authentication-failure-url="/loginError.jsp"
-             default-target-url="/authenticated/index.jsp"/>
-    <logout logout-success-url="/login.htm"/>
-    </http>
+	<form-login login-page="/login.htm"
+		authentication-failure-url="/login.htm?login_error=true" default-target-url="/authenticated/index.jsp" />
+	<logout logout-success-url="/login.htm" />
+</http>
     
 	<authentication-manager>
 		<authentication-provider>

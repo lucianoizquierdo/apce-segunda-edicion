@@ -35,7 +35,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 				<prop key="java.lang.Exception">errores/friendlyError</prop>  
 			</props>
 		</property>
-	</bean> 
+	</bean>  
 	 
 	<bean id="validatorFactory" class="org.springmodules.validation.commons.DefaultValidatorFactory">
 		<property name="validationConfigLocations">
@@ -56,9 +56,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
                 <entry key="/registracion.htm">
                     <ref bean="RegistracionFormController" />
                 </entry>
-                <!-- <entry key="/j_spring_security_check">
-                    <ref bean="ToloController" />
-                </entry> -->
                 <entry key="/main.hmt">
                     <ref bean="MainController" />
                 </entry>
@@ -88,7 +85,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
         </property>
         <property name="successView">
             <value>/pantallaPrincipal/paginaPrincipal</value>
-        </property> 
+        </property>  
     </bean>
     
     <bean id="RegistracionFormController"
@@ -98,7 +95,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
         </property>
         <property name="validator">
         	<bean class="com.apce.web.validator.RegistracionFormValidator"></bean>
-        </property>
+        </property> 
         <property name="commandName">
             <value>registracionForm</value>
         </property>
@@ -112,18 +109,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
         	<value>/login/registracionSuccess</value>
         </property>  
     </bean>
-    <bean id="RegistracionFormValidator" class="com.apce.web.validator.RegistracionFormValidator" />
+    <bean id="RegistracionFormValidator" class="com.apce.web.validator.RegistracionFormValidator" /> 
     
     <bean id="MainController"
         class="com.apce.web.controller.MainController">
         <property name="sessionForm">
             <value>true</value>
         </property> 
-        <!-- 
-        <property name="validator">
-        	<bean class="com.apce.web.validator.MateriaPrimaFormValidator"></bean>
-        </property>
-         -->
         <property name="commandName">
             <value>mainForm</value>
         </property>
@@ -165,47 +157,4 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="/WEB-INF/messages" />
 	</bean>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	 <bean id="ToloController"
-        class="com.apce.web.controller.ToloController">
-        <property name="sessionForm">
-            <value>true</value>
-        </property> 
-        <!-- 
-        <property name="validator">
-        	<bean class="com.apce.web.validator.MateriaPrimaFormValidator"></bean>
-        </property>
-         -->
-     <!--    <property name="commandName">
-            <value>mainForm</value>
-        </property>
-        <property name="commandClass">
-            <value>com.apce.web.form.MainForm</value>
-        </property>
-        <property name="formView">
-           <value>/menu/menu.jsp</value>
-        </property>
-         -->
-        <property name="successView">
-           <value>/menu/menu.jsp</value>
-        </property>
-    </bean>
 </beans>
