@@ -1,5 +1,7 @@
 package com.apce.servicio.servicoInterfaz;
 
+import java.util.List;
+
 import com.apce.modelo.Usuario;
 
 /**
@@ -32,4 +34,6 @@ public interface UsuarioService extends BaseService{
 	public void bajaUsuario(Usuario usu) ;
 
 	public void modificarUsuario(Usuario usu);
+	
+	public List<Usuario> getUsuariosNoActivos(Integer idSucursal);
 }

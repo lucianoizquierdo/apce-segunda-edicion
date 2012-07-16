@@ -1,5 +1,7 @@
 package com.apce.persistencia.interfaz;
 
+import java.util.List;
+
 import com.apce.modelo.Usuario;
 
 
@@ -19,5 +21,7 @@ public interface UsuarioDAO extends BaseDAO {
 	public void modificarUsuario(Integer idusuario);
 
 	public boolean existeUser(String aliasUsuario, Integer idSucursal);
+
+	public List<Usuario> getUsuariosNoActivos(Integer IdSucrusal);
 
 }
