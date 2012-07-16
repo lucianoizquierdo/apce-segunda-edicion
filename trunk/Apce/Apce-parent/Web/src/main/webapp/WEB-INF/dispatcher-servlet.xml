@@ -29,13 +29,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	</bean>	
 	 -->
 	 
-	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<!-- <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
 				<prop key="java.lang.Exception">errores/friendlyError</prop>  
 			</props>
 		</property>
-	</bean>  
+	</bean>   -->
 	 
 	<bean id="validatorFactory" class="org.springmodules.validation.commons.DefaultValidatorFactory">
 		<property name="validationConfigLocations">
@@ -56,11 +56,14 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
                 <entry key="/registracion.htm">
                     <ref bean="RegistracionFormController" />
                 </entry>
-                <entry key="/main.hmt">
+                <entry key="/main.htm">
                     <ref bean="MainController" />
                 </entry>
                 <entry key="/altaMateriasPrimas.htm">
                     <ref bean="MateriasPrimasFormController" />
+                </entry>
+                 <entry key="/activarUsuarios.htm">
+                    <ref bean="ActivarUsuariosController" />
                 </entry>
             </map>
         </property>
@@ -123,11 +126,11 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
             <value>com.apce.web.form.MainForm</value>
         </property>
         <property name="formView">
-           <value>/menu/menu.jsp</value>
+           <value>/menu/menu</value>
         </property>
-        <property name="successView">
-           <value>/menu/menu.jsp</value>
-        </property>
+        <!-- <property name="successView">
+           <value>/menu/menu</value>
+        </property> -->
     </bean>
     
     <bean id="MateriasPrimasFormController"
@@ -145,14 +148,24 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
           <value>com.apce.web.form.MateriaPrimaForm</value>
       </property>
       <property name="formView">
-          <value>/materiasprimas/altaMateriaPrima.jsp</value>
+          <value>/materiasprimas/altaMateriaPrima</value>
       </property>
       <property name="successView">
-      	<value>/materiasprimas/altaMateriaPrima.jsp</value>
+      	<value>/materiasprimas/altaMateriaPrima</value>
       </property>  
     </bean>
     <bean id="MateriaPrimaFormValidator" class="com.apce.web.validator.MateriaPrimaFormValidator" />
 
+	<bean id="ActivarUsuariosController"
+      class="com.apce.web.controller.ActivarUsuariosController">
+     <!--  <property name="sessionForm">
+          <value>true</value>
+      </property> -->
+     <!--  <property name="successView">
+      	<value>/viva/peron</value>
+      </property>   -->
+    </bean>
+    
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="/WEB-INF/messages" />

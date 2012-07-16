@@ -81,6 +81,7 @@
 			<value>com.apce.modelo.Permiso</value>
 			<value>com.apce.modelo.Sucursal</value>
 			<value>com.apce.modelo.MateriaPrima</value>
+			<value>com.apce.modelo.Rol</value>
 		</list>
 	</property>
 	<property name="hibernateProperties">

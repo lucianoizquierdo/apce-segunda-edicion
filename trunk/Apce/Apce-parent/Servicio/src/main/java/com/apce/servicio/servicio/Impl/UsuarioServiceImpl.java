@@ -1,5 +1,9 @@
 package com.apce.servicio.servicio.Impl;
 
+import java.util.List;
+
+import javax.persistence.IdClass;
+
 import com.apce.modelo.Usuario;
 import com.apce.persistencia.interfaz.BaseDAO;
 import com.apce.persistencia.interfaz.UsuarioDAO;
@@ -45,6 +49,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public void modificarUsuario(Usuario usu) {
 		// TODO Auto-generated method stub
 		dao.modificarUsuario(usu);
+	}
+
+	@Override
+	public List<Usuario> getUsuariosNoActivos(Integer idSucursal) {
+		// TODO Auto-generated method stub
+		return dao.getUsuariosNoActivos(idSucursal);
 	}
 
 	/*
