@@ -10,27 +10,18 @@ public class UsuarioDAOImpl extends BaseDaoImpl implements UsuarioDAO{
 	public UsuarioDAOImpl() {
 		// TODO Auto-generated constructor stub
 	}
-//	
-//	public UsuarioDAOImpl(SessionFactory sessionFactory) {
-//		// TODO Auto-generated constructor stub
-//		super.setSessionFactory(sessionFactory);
-//	}
-	
-	
 
 	public void altaUsuario(Usuario usu) {
 		// TODO Auto-generated method stub
-		usu.setIsActivo(true);
+		usu.setActivo(true);
 		getHibernateTemplate().save(usu);
-		
 	}
 
 	public void bajaUsuario(Usuario usu) {
 		// TODO Auto-generated method stub
 		//Lo borro logicamente
-		usu.setIsActivo(false);
+		usu.setActivo(false);
 		getHibernateTemplate().saveOrUpdate(usu);
-		
 	}
 
 	public void bajaUsuario(Integer idUsuario) {
@@ -72,7 +63,7 @@ public class UsuarioDAOImpl extends BaseDaoImpl implements UsuarioDAO{
 	@Override
 	public List<Usuario> getUsuariosNoActivos(Integer idSucursal) {
 		// TODO Auto-generated method stub
-		List<Usuario> usuarios = getHibernateTemplate().find("select u from Usuario u where u.idSucursal = " + idSucursal + " AND u.activo = 'true'");
+		List<Usuario> usuarios = getHibernateTemplate().find("select u from Usuario u where u.idSucursal = " + idSucursal + " AND u.activo = 'false'");
 		if(usuarios.size() != 0)
 			return usuarios;
 		else

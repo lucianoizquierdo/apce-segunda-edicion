@@ -43,6 +43,11 @@
                                                             name='j_password' size="30" maxlength="30"></td>
                                     </tr>
                                     <tr>
+                                                <td width="80">Remember-me</td>
+                                                <td valign="top" align="left"> <input type='checkbox' 
+                                                			name='_spring_security_remember_me' id="_spring_security_remember_me" tabindex="3" value="true"/></td>
+                                    </tr>
+                                    <tr>
                                                 <td></td>
                                                 <td><input type="submit" value="Submit" /></td>
                                     </tr>

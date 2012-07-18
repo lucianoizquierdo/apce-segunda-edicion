@@ -7,8 +7,9 @@
 </head>
 <body>
 	<script type="text/javascript">
-	var login = "<%=request.getContextPath()%>/inicio"; 
+	//var login = "<%=request.getContextPath()%>/inicio"; 
 	//alert(login);
-	document.location.href = login;  
+	//document.location.href = login;
+	  
 	</script>
 </html>

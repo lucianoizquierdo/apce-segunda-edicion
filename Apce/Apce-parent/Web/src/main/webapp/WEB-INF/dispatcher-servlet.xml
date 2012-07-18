@@ -68,6 +68,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
             </map>
         </property>
     </bean>
+    
+   
 
 	<bean id="LoginFormController"
         class="com.apce.web.controller.LoginFormController">
@@ -156,15 +158,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
     </bean>
     <bean id="MateriaPrimaFormValidator" class="com.apce.web.validator.MateriaPrimaFormValidator" />
 
-	<bean id="ActivarUsuariosController"
-      class="com.apce.web.controller.ActivarUsuariosController">
-     <!--  <property name="sessionForm">
-          <value>true</value>
-      </property> -->
-     <!--  <property name="successView">
-      	<value>/viva/peron</value>
-      </property>   -->
-    </bean>
+	<bean id="ActivarUsuariosController" class="com.apce.web.controller.ActivarUsuariosController" />
     
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
