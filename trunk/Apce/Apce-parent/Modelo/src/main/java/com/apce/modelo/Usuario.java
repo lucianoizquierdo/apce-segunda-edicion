@@ -34,8 +34,9 @@ public class Usuario {
 	private Integer 	telefono;
 	private String 		direccion;
 	private String 		pass;
+	//TODO: pasar esto a isActivo
 	@Column(name="activo")
-	private Boolean 	isActivo;
+	private boolean 	activo; 
 	
 	@OneToMany
 	@JoinTable(name = "usuario_rol",
@@ -67,12 +68,12 @@ public class Usuario {
 		this.idusuario = idUsuario;
 	}
 	
-	public Boolean isActivo() {
-		return isActivo;
+	public boolean isActivo() {
+		return activo;
 	}
 
-	public void setIsActivo(Boolean isActivo) {
-		this.isActivo = isActivo;
+	public void setActivo(boolean isActivo) {
+		this.activo = isActivo;
 	}
 
 	public String getNombre() {
