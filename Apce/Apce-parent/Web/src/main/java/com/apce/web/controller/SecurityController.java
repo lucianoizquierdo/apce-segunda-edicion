@@ -4,19 +4,14 @@
 
 package com.apce.web.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import org.springframework.web.servlet.mvc.SimpleFormController;
-
-import com.apce.modelo.Sucursal;
-import com.apce.modelo.Usuario;
-
-public class SecurityController extends SimpleFormController {
+public class SecurityController {
 	
-	public List<SimpleFormController> getControllersAccesibles(Usuario usu, Sucursal suc)
-	{
-		return null;
+	
+	public SecurityController() {
+		// TODO Auto-generated constructor stub
+		System.out.println("Prueba");
 	}
+	
 
 }
