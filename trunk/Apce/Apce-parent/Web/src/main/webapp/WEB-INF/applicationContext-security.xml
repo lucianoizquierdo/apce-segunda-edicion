@@ -81,12 +81,16 @@
   
   
 	<http auto-config="true">
-		 <intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-    	 <intercept-url pattern="/**" access="ROLE_USER" />
-		 <form-login login-page="/login.htm"
+		<intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+    	<intercept-url pattern="/**" access="ROLE_USER" />
+		<form-login login-page="/login.htm"
 					authentication-failure-url="/login.htm?login_error=true" default-target-url="/main.htm" />
-		 <remember-me key="myAppKey"/>
-		<!-- <logout logout-success-url="/login.htm" /> -->
+					<remember-me key="myAppKey"/>
+		 <logout logout-success-url="/login.htm" />
+		 <logout delete-cookies="JSESSIONID" />
+		 <session-management>
+         	<concurrency-control max-sessions="1"  error-if-maximum-exceeded="true" />
+    	 </session-management>
 	</http>
     
 	<authentication-manager>
