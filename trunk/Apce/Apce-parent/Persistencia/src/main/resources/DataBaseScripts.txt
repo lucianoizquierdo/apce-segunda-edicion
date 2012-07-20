@@ -230,8 +230,43 @@ WITH (
   OIDS=FALSE
 );
 ALTER TABLE usuario_rol OWNER TO postgres;
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
+----------------------------------FUNCIONES------------------------------------------------------
+-- Table: funciones
+
+-- DROP TABLE funciones;
+
+CREATE TABLE funciones
+(
+  id_funcion integer NOT NULL,
+  descripcion text,
+  link text,
+  CONSTRAINT pk_id_funcion PRIMARY KEY (id_funcion)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE funciones OWNER TO postgres;
+----------------------------------ROL_FUNCION------------------------------------------------------
+-- Table: rol_funcion
+
+-- DROP TABLE rol_funcion;
+
+CREATE TABLE rol_funcion
+(
+  id_rol smallint NOT NULL,
+  id_funcion integer NOT NULL,
+  CONSTRAINT "pk_id_rol-and-id_funcion" PRIMARY KEY (id_rol, id_funcion),
+  CONSTRAINT "fk-_id_rol" FOREIGN KEY (id_rol)
+      REFERENCES roles (id_rol) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT "fk-id_funcion" FOREIGN KEY (id_funcion)
+      REFERENCES funciones (id_funcion) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE rol_funcion OWNER TO postgres;
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
