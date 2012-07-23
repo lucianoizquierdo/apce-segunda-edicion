@@ -19,41 +19,6 @@
 		<form-login login-page='/login.htm'/>
 	</http>	
  -->	
- <!--
-	 <authentication-provider>
-    	<user-service>
-      		<user name="jimi" password="jimispassword" authorities="ROLE_USER, ROLE_ADMIN" />
-      		<user name="bob" password="bobspassword" authorities="ROLE_USER" />
-    	</user-service>
-  	</authentication-provider> -->
-  	
-  <!-- 	<http auto-config="true">
-		<intercept-url pattern="/welcome*" access="ROLE_USER" />
-	</http>
- 
-	<authentication-manager>
-	  <authentication-provider>
-	    <user-service>
-		<user name="mkyong" password="123456" authorities="ROLE_USER" />
-	    </user-service>
-	  </authentication-provider>
-	</authentication-manager> -->
-
-
-	
-            <!-- 
-	<authentication-manager>
-	   <authentication-provider>
-		<jdbc-user-service data-source-ref="apce_desa_datasource"
- 
-		   	  users-by-username-query="
-		      select aliasusuario,pass, activo 
-		      from usuarios where aliasusuario=?" 
-		/>
-	   </authentication-provider>
-	</authentication-manager>  	
-  	
-  	 -->
 
 	<!-- <http auto-config="true">
 		<intercept-url pattern="/inicio*" access="ROLE_USER" />
@@ -81,8 +46,8 @@
   
   
 	<http auto-config="true" use-expressions="true">
-		<intercept-url pattern="/login*" access="hasRole('ROLE_USER') "/>
-    	<intercept-url pattern="/**" access="hasRole('ROLE_USER') " />
+		<intercept-url pattern="/login*" access="permitAll"/>
+    	<intercept-url pattern="/**" access="hasRole('ROLE_de_prueba') " />
 		<form-login login-page="/login.htm"
 					authentication-failure-url="/login.htm?login_error=true" default-target-url="/main.htm" />
 					<remember-me key="myAppKey"/>
@@ -92,7 +57,26 @@
          	<concurrency-control max-sessions="1"  error-if-maximum-exceeded="true" />
     	 </session-management>
 	</http>
+	
+	<authentication-manager>
+	   <authentication-provider>
+		<jdbc-user-service data-source-ref="apce_desa_datasource"
+ 
+		   users-by-username-query="
+		      select aliasusuario,pass,activo 
+		      from usuarios where aliasusuario=?"
+ 
+		   authorities-by-username-query="
+		      select u.aliasusuario, r.descripcion from usuarios u, usuario_rol ur, roles r 
+		      where u.idusuario = ur.id_usuario 
+		      and ur.id_rol = r.id_rol
+		      and u.aliasusuario =?" 
+ 
+		/>
+	   </authentication-provider>
+	</authentication-manager>
     
+   <!--  
 	<authentication-manager>
 		<authentication-provider>
 			<user-service>
@@ -102,6 +86,7 @@
 			</user-service>
 		</authentication-provider>
 	</authentication-manager>
+	 -->
   	 
   	
   	
@@ -123,21 +108,6 @@
   	
   	
   	<!--
-	
-	<http auto-config='true'>
-		<intercept-url pattern="/**" access="ROLE_USER" />
-	</http>
-	
-   	<http>
-		<intercept-url pattern="/**" access="ROLE_USER" />
-		<form-login />
-		<anonymous />
-		<http-basic />
-		<logout />
-		<remember-me />
-	</http>
-	
-	
 	
 	<beans:bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
 		<beans:property name="providers">
