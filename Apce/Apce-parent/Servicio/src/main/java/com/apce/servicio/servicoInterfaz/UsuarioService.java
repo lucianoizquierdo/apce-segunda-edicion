@@ -29,6 +29,13 @@ public interface UsuarioService extends BaseService{
 	 */
 	public Usuario getUsuario(String user, String pass, Integer sucursal);
 	
+	/**
+	 * Devuelve un usuario o null si el usuario no existe.
+	 * @param user
+	 * @return Usuario
+	 */
+	public Usuario getUsuario(String user);
+	
 	public void altaUsuario(Usuario usu); 
 
 	public void bajaUsuario(Usuario usu) ;

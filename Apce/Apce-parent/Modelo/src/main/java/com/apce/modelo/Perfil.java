@@ -11,37 +11,30 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="roles")
-public class Rol {
+@Table(name="perfiles")
+public class Perfil {
 	
 	@Id
 	@GeneratedValue
-	private Integer id_rol;
+	private Integer id_perfil;
 	private String descripcion;
 	@OneToMany
-	@JoinTable(name = "rol_perfil",
-	    		joinColumns = {@JoinColumn(name="id_rol", unique = true)},inverseJoinColumns = {@JoinColumn(name="id_perfil")}
+	@JoinTable(name = "perfil_permiso",
+	    		joinColumns = {@JoinColumn(name="id_perfil", unique = true)},inverseJoinColumns = {@JoinColumn(name="id_permiso")}
 			  )
-	private Set<Perfil> perfiles;
+    private Set<Permiso> permisos;
 	
-	
-	
-	
-	
-	public Set<Perfil> getPerfiles() {
-		return perfiles;
+	public Set<Permiso> getPermisos() {
+		return permisos;
 	}
-
-	public void setPerfiles(Set<Perfil> perfiles) {
-		this.perfiles = perfiles;
+	public void setPermisos(Set<Permiso> permisos) {
+		this.permisos = permisos;
 	}
-
-	public Integer getIdRol() {
-		return id_rol;
+	public Integer getIdPerfil() {
+		return id_perfil;
 	}
-	
-	public void setIdRol(Integer idRol) {
-		this.id_rol = idRol;
+	public void setIdPerfil(Integer idPerfil) {
+		this.id_perfil = idPerfil;
 	}
 	public String getDescripcion() {
 		return descripcion;
@@ -49,6 +42,8 @@ public class Rol {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	
+	
 	
 
 }

@@ -118,6 +118,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
     
     <bean id="MainController"
         class="com.apce.web.controller.MainController">
+        <!-- 
         <property name="sessionForm">
             <value>true</value>
         </property> 
@@ -130,7 +131,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
         <property name="formView">
            <value>/menu/menu</value>
         </property>
-        <!-- <property name="successView">
+        <property name="successView">
            <value>/menu/menu</value>
         </property> -->
     </bean>

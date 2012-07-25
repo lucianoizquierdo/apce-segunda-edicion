@@ -1,14 +1,31 @@
 package com.apce.web.controller;
 
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.SimpleFormController;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-public class MainController extends SimpleFormController { 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.AbstractController;
+
+import com.apce.modelo.Usuario;
+import com.apce.servicio.servicio.Impl.FacadeService;
+import com.apce.servicio.servicoInterfaz.UsuarioService;
+
+public class MainController extends AbstractController {
 	
-	    @Override
-	    protected ModelAndView onSubmit(Object command) throws Exception {
-	        return super.onSubmit(command);
-	        
-	    }
+	UsuarioService usuarioService = FacadeService.getUsuarioService();	 
+	
+		@Override
+		protected ModelAndView handleRequestInternal(HttpServletRequest arg0,
+				HttpServletResponse arg1) throws Exception {
+	    	
+			//Obtengo el usuario
+	    	Authentication au = SecurityContextHolder.getContext().getAuthentication();
+	    	String nombreUsuario = au.getName();
+	    	Usuario user = usuarioService.getUsuario(nombreUsuario); 
+	    	
+			return new ModelAndView("menu.htm");
+		}
 
 }
