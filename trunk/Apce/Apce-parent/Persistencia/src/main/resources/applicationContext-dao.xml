@@ -82,6 +82,8 @@
 			<value>com.apce.modelo.Sucursal</value>
 			<value>com.apce.modelo.MateriaPrima</value>
 			<value>com.apce.modelo.Rol</value>
+			<value>com.apce.modelo.Perfil</value>
+			<value>com.apce.modelo.Menu</value>
 		</list>
 	</property>
 	<property name="hibernateProperties">

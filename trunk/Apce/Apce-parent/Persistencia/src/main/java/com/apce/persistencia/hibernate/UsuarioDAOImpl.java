@@ -52,7 +52,7 @@ public class UsuarioDAOImpl extends BaseDaoImpl implements UsuarioDAO{
 
 	public Usuario getUsuario(String user, String pass, Integer idSucursal) {
 		// TODO Auto-generated method stub
-		List<Usuario> usuarios = getHibernateTemplate().find("select u from Usuario u where u.aliasusuario = " + "'luckyzener'" + " AND u.pass =" + pass  + " AND u.idSucursal = " + idSucursal);
+		List<Usuario> usuarios = getHibernateTemplate().find("select u from Usuario u where u.aliasUsuario = " + user + " AND u.pass =" + pass  + " AND u.idSucursal = " + idSucursal);
 		if(usuarios.size() != 0)
 			return usuarios.get(0);
 		else
@@ -69,5 +69,15 @@ public class UsuarioDAOImpl extends BaseDaoImpl implements UsuarioDAO{
 		else
 			return null;
 		
+	}
+
+	@Override
+	public Usuario getUsuario(String user) {
+		// TODO Auto-generated method stub
+		List<Usuario> usuarios = getHibernateTemplate().find("select u from Usuario u where u.aliasUsuario = " +  "'" + user +  "'" );
+		if(usuarios.size() != 0)
+			return usuarios.get(0);
+		else
+			return null;
 	}
 }

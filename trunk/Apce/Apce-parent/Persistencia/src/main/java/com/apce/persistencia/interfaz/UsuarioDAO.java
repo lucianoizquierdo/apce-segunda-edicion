@@ -24,4 +24,6 @@ public interface UsuarioDAO extends BaseDAO {
 
 	public List<Usuario> getUsuariosNoActivos(Integer IdSucrusal);
 
+	public Usuario getUsuario(String user);
+
 }

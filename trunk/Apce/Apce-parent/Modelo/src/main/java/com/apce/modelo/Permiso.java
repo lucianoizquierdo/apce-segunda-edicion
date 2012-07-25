@@ -2,6 +2,7 @@ package com.apce.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,19 +11,23 @@ import javax.persistence.Table;
 public class Permiso {
 	
 	@Id
-	private Integer idUsuario;
-	private Integer id_rol;
+	@GeneratedValue
+	private Integer id_permiso;
+	private String descripcion;
 	
-	public Integer getIdUsuario() {
-		return idUsuario;
+	public Integer getIdPermiso() {
+		return id_permiso;
 	}
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setIdPermiso(Integer id_permiso) {
+		this.id_permiso = id_permiso;
 	}
-	public Integer getIdRol() {
-		return id_rol;
+	public String getDescripcion() {
+		return descripcion;
 	}
-	public void setIdRol(Integer idRol) {
-		this.id_rol = idRol;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
+	
+	
+	
 }

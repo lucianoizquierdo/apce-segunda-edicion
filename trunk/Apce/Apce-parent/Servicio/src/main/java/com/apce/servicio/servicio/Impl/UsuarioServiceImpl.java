@@ -57,6 +57,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return dao.getUsuariosNoActivos(idSucursal);
 	}
 
+	@Override
+	public Usuario getUsuario(String user) {
+		// TODO Auto-generated method stub
+		return dao.getUsuario(user);
+	}
+
 	/*
 	@Override
 	public UserDetails loadUserByUsername(String user)
