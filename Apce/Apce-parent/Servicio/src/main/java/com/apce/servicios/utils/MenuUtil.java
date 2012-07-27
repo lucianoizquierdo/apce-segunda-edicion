@@ -28,6 +28,9 @@ public class MenuUtil {
 			for (Perfil perfil : perfiles) 
 			{
 				Set<Permiso> permisos = perfil.getPermisos();
+				for (Permiso permiso : permisos) {
+					menus.add(e)
+				}
 			}
 		}
 		
