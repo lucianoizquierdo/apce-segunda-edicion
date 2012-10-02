@@ -19,23 +19,23 @@ public class MenuUtil {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Set<Menu> getMenu(Set<Rol> roles)
-	{
-		Set<Menu> menus = new HashSet<Menu>();
-		for (Rol rol : roles) 
-		{
-			Set<Perfil> perfiles = rol.getPerfiles();
-			for (Perfil perfil : perfiles) 
-			{
-				Set<Permiso> permisos = perfil.getPermisos();
-				for (Permiso permiso : permisos) {
-					menus.add(e)
-				}
-			}
-		}
-		
-		return menus;
-	}
-	
+//	public Set<Menu> getMenu(Set<Rol> roles)
+//	{
+//		Set<Menu> menus = new HashSet<Menu>();
+//		for (Rol rol : roles) 
+//		{
+//			Set<Perfil> perfiles = rol.getPerfiles();
+//			for (Perfil perfil : perfiles) 
+//			{
+//				Set<Permiso> permisos = perfil.getPermisos();
+//				for (Permiso permiso : permisos) {
+//					menus.add(e);
+//				}
+//			}
+//		}
+//		
+//		return menus;
+//	}
+//	
 
 }
