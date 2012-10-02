@@ -128,12 +128,14 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
         <property name="commandClass">
             <value>com.apce.web.form.MainForm</value>
         </property>
+        
         <property name="formView">
            <value>/menu/menu</value>
         </property>
         <property name="successView">
            <value>/menu/menu</value>
-        </property> -->
+        </property>
+        --> 
     </bean>
     
     <bean id="MateriasPrimasFormController"
