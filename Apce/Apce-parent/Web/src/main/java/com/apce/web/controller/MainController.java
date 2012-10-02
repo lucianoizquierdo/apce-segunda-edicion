@@ -25,7 +25,7 @@ public class MainController extends AbstractController {
 	    	String nombreUsuario = au.getName();
 	    	Usuario user = usuarioService.getUsuario(nombreUsuario); 
 	    	
-			return new ModelAndView("menu.htm");
+			return new ModelAndView("/main/main");
 		}
 
 }

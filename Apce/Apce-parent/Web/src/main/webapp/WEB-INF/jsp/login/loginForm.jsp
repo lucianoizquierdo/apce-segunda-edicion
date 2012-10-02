@@ -26,7 +26,7 @@
                                                             <hr width="100%" size="1" noshade align="left">
                                                 </td>
                                                 <td></td>
-                                    </tr>
+                                    </tr>  
                                     <tr>
                                                 <td width="80">Username</td>
                                                 <td valign="top" align="left"><input type='text'
