@@ -11,13 +11,12 @@ CREATE DATABASE apce_desa
   WITH OWNER = postgres
        ENCODING = 'UTF8'
        TABLESPACE = pg_default
-       LC_COLLATE = 'Spanish_Argentina.1252'
-       LC_CTYPE = 'Spanish_Argentina.1252'
+       LC_COLLATE = 'Spanish_Spain.1252'
+       LC_CTYPE = 'Spanish_Spain.1252'
        CONNECTION LIMIT = -1;
 GRANT ALL ON DATABASE apce_desa TO public;
 GRANT ALL ON DATABASE apce_desa TO postgres;
-COMMENT ON DATABASE apce_desa IS 'Base de apce de desarrollo
-';
+COMMENT ON DATABASE apce_desa IS 'Base de apce de desarrollo';
 
 ---------------------------------------usuarios secuencer -----------------------------------------
 -- Sequence: usuarios_seq
