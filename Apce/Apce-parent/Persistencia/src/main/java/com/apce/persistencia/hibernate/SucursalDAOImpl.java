@@ -1,5 +1,7 @@
 package com.apce.persistencia.hibernate;
 
+import java.util.List;
+
 import com.apce.modelo.Sucursal;
 import com.apce.persistencia.interfaz.SucursalDAO;
 
@@ -24,6 +26,13 @@ public class SucursalDAOImpl extends BaseDaoImpl implements SucursalDAO{
 	public void modificarSurucsal(Sucursal sucursal) {
 		getHibernateTemplate().saveOrUpdate(sucursal);
 		
+	}
+
+	
+	public List<Sucursal> getSucursales() {
+		// TODO Auto-generated method stub
+		List<Sucursal> sucursales = (List<Sucursal>)getHibernateTemplate().find("select s from Sucursal s");
+		return sucursales;
 	}
 
 

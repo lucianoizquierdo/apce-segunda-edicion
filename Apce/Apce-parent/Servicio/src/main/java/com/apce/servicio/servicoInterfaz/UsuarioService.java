@@ -43,4 +43,6 @@ public interface UsuarioService extends BaseService{
 	public void modificarUsuario(Usuario usu);
 	
 	public List<Usuario> getUsuariosNoActivos(Integer idSucursal);
+
+	public Object getUsuarios();
 }
