@@ -65,6 +65,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
                  <entry key="/activarUsuarios.htm">
                     <ref bean="ActivarUsuariosController" />
                 </entry>
+                 <entry key="/administrarSucursales.htm">
+                    <ref bean="SucursalesFormController" />
+                </entry>
             </map>
         </property>
     </bean>
@@ -160,8 +163,25 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
       </property>  
     </bean>
     <bean id="MateriaPrimaFormValidator" class="com.apce.web.validator.MateriaPrimaFormValidator" />
-
+    
 	<bean id="ActivarUsuariosController" class="com.apce.web.controller.ActivarUsuariosController" />
+	
+	<bean id="SucursalesFormController" class="com.apce.web.controller.SucursalesFormController">
+    	<property name="methodNameResolver">
+        	<bean class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+            	<property name="paramName" value="method"/>
+        	</bean>
+    	</property>
+	</bean>
+	
+	<bean id="UsuariosFormController" class="com.apce.web.controller.UsuariosFormController">
+    	<property name="methodNameResolver">
+        	<bean class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+            	<property name="paramName" value="method"/>
+        	</bean>
+    	</property>
+	</bean>
+	
     
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
