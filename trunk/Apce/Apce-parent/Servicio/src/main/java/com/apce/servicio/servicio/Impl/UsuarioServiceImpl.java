@@ -63,6 +63,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return dao.getUsuario(user);
 	}
 
+	@Override
+	public Object getUsuarios() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	/*
 	@Override
 	public UserDetails loadUserByUsername(String user)

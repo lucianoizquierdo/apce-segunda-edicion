@@ -1,5 +1,7 @@
 package com.apce.servicio.servicio.Impl;
 
+import java.util.List;
+
 import com.apce.modelo.Sucursal;
 import com.apce.persistencia.interfaz.BaseDAO;
 import com.apce.persistencia.interfaz.SucursalDAO;
@@ -33,6 +35,13 @@ public class SucursalServiceImpl extends BaseServiceImpl implements SucursalServ
 	public void modificarSurucsal(Sucursal sucursal) {
 		// TODO Auto-generated method stub
 		dao.modificarSurucsal(sucursal);
+	}
+
+
+	@Override
+	public List<Sucursal> getSucursales() {
+		// TODO Auto-generated method stub
+		return dao.getSucursales();
 	}
 
 }
