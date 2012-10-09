@@ -11,9 +11,11 @@
 <body>
 <script type="text/javascript" src="/Web/Js/menu.js"></script>
 <input type="button" value="Altas Materias Primas" onclick="altaMateriaPrima('<%=request.getContextPath()%>');" />
-<sec:authorize access="hasRole('ROLE_supervisor')">
+<sec:authorize access="hasRole('ROLE_ADMINISTRADOR')">
 <input type="button" value="Activar nuevos usuarios" onclick="activarNuevosUsuarios('<%=request.getContextPath()%>');" />
+<input type="button" value="Administrar Usuarios" onclick="administrarUsuarios('<%=request.getContextPath()%>');" />
+<input type="button" value="Administrar Sucursales" onclick="administrarSucursales('<%=request.getContextPath()%>');" />
 </sec:authorize>
 </body>
 </html>
-  
+    

@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Altas de Materias Primas</title>
+ <jsp:include page="../menu/menu.jsp" />
 </head>
 <body>
 <form:form commandName="materiaPrimaForm" method="POST">
