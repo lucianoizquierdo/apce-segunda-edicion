@@ -1,5 +1,7 @@
 package com.apce.servicio.servicoInterfaz;
 
+import java.util.List;
+
 import com.apce.modelo.MateriaPrima;
 
 public interface MateriaPrimaService extends BaseService {
@@ -11,5 +13,7 @@ public interface MateriaPrimaService extends BaseService {
 	public void modificarMateriaPrima(MateriaPrima matPrim);
 
 	public boolean existeMateriaPrima(String codigoMateriaPrima);
+
+	public List<MateriaPrima> getMateriasPrimas();
 
 }
