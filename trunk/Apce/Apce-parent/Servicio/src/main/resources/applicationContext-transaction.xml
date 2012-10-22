@@ -32,7 +32,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
             	<prop key="find*">PROPAGATION_SUPPORTS,readOnly</prop>
             	<prop key="is*">PROPAGATION_SUPPORTS,readOnly</prop>
             	<prop key="existe*">PROPAGATION_SUPPORTS,readOnly</prop>
-            	<prop key="alta*">PROPAGATION_SUPPORTS,readOnly</prop>
+            	<prop key="alta*">PROPAGATION_SUPPORTS</prop>
             	<prop key="baja*">PROPAGATION_SUPPORTS,readOnly</prop>
             	<prop key="modificacion*">PROPAGATION_SUPPORTS,readOnly</prop>
             	<!-- <prop key="*">PROPAGATION_REQUIRED</prop> -->

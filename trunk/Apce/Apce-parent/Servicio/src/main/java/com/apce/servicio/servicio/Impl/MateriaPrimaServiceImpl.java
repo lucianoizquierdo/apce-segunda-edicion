@@ -1,5 +1,7 @@
 package com.apce.servicio.servicio.Impl;
 
+import java.util.List;
+
 import com.apce.modelo.MateriaPrima;
 import com.apce.persistencia.interfaz.BaseDAO;
 import com.apce.persistencia.interfaz.MateriaPrimaDAO;
@@ -39,6 +41,13 @@ public class MateriaPrimaServiceImpl implements MateriaPrimaService {
 	public boolean existeMateriaPrima(String codigoMateriaPrima) {
 		// TODO Auto-generated method stub
 		return dao.existeMateriaPrima(codigoMateriaPrima);
+	}
+
+
+	@Override
+	public List<MateriaPrima> getMateriasPrimas() {
+		// TODO Auto-generated method stub
+		return dao.getMateriasPrimas();
 	}
 
 }
