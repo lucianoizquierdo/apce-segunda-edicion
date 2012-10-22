@@ -5,6 +5,7 @@
 <title>Apce Main</title>
 <link rel="stylesheet" href="CSS/screen.css" type="text/css"
 	media="screen" title="default" />
+<script type="text/javascript" src="/Web/Js/menu.js"></script>
 <!--[if IE]>
 <link rel="stylesheet" media="all" type="text/css" href="css/pro_dropline_ie.css" />
 <![endif]-->
@@ -163,6 +164,7 @@
 </script>
 </head>
 <body>
+	<jsp:include page="../menu/menu.jsp" />
 	<!-- Start: page-top-outer -->
 	<div id="page-top-outer">
 
@@ -189,7 +191,7 @@
 								<option value="">Products</option>
 								<option value="">Categories</option>
 								<option value="">Clients</option>
-								<option value="">News</option>
+								<option value="">ADMINISTRACION</option>
 						</select></td>
 						<td><input type="image"
 							src="images/shared/top_search_btn.gif" /></td>
@@ -255,24 +257,23 @@
 				<div class="table">
 
 					<ul class="select">
-						<li><a href="#nogo"><b>Dashboard</b>
-							<!--[if IE 7]><!--></a>
-						<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]-->
+						<li><a href="#nogo"><b>Materia Prima</b> <!--[if IE 7]><!--></a>
+							<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]-->
 							<div class="select_sub">
 								<ul class="sub">
-									<li><a href="#nogo">Dashboard Details 1</a></li>
-									<li><a href="#nogo">Dashboard Details 2</a></li>
-									<li><a href="#nogo">Dashboard Details 3</a></li>
+									<li><a href="#nogo">Lista</a></li>
+									<li><a
+										onclick="altaMateriaPrima('<%=request.getContextPath()%>');">Alta</a></li>
+									<!--<li><a href="#nogo">Baja</a></li> -->
 								</ul>
 							</div> <!--[if lte IE 6]></td></tr></table></a><![endif]--></li>
 					</ul>
 
 					<div class="nav-divider">&nbsp;</div>
 
-					<ul class="current">
-						<li><a href="#nogo"><b>Products</b>
-							<!--[if IE 7]><!--></a>
-						<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]-->
+					<ul class="select">
+						<li><a href="#nogo"><b>Products</b> <!--[if IE 7]><!--></a> <!--<![endif]-->
+							<!--[if lte IE 6]><table><tr><td><![endif]-->
 							<div class="select_sub show">
 								<ul class="sub">
 									<li><a href="#nogo">View all products</a></li>
@@ -285,9 +286,8 @@
 					<div class="nav-divider">&nbsp;</div>
 
 					<ul class="select">
-						<li><a href="#nogo"><b>Categories</b>
-							<!--[if IE 7]><!--></a>
-						<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]-->
+						<li><a href="#nogo"><b>Categories</b> <!--[if IE 7]><!--></a>
+							<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]-->
 							<div class="select_sub">
 								<ul class="sub">
 									<li><a href="#nogo">Categories Details 1</a></li>
@@ -300,9 +300,8 @@
 					<div class="nav-divider">&nbsp;</div>
 
 					<ul class="select">
-						<li><a href="#nogo"><b>Clients</b>
-							<!--[if IE 7]><!--></a>
-						<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]-->
+						<li><a href="#nogo"><b>Clients</b> <!--[if IE 7]><!--></a> <!--<![endif]-->
+							<!--[if lte IE 6]><table><tr><td><![endif]-->
 							<div class="select_sub">
 								<ul class="sub">
 									<li><a href="#nogo">Clients Details 1</a></li>
@@ -316,12 +315,11 @@
 					<div class="nav-divider">&nbsp;</div>
 
 					<ul class="select">
-						<li><a href="#nogo"><b>News</b>
-							<!--[if IE 7]><!--></a>
-						<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]-->
+						<li><a href="#nogo"><b>ADMINISTRACION</b> <!--[if IE 7]><!--></a>
+							<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]-->
 							<div class="select_sub">
 								<ul class="sub">
-									<li><a href="#nogo">News details 1</a></li>
+									<li><a href="#nogo">Usuarios</a></li>
 									<li><a href="#nogo">News details 2</a></li>
 									<li><a href="#nogo">News details 3</a></li>
 								</ul>

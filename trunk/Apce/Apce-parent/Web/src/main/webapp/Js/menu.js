@@ -5,7 +5,12 @@ function altaMateriaPrima(path)
 	//alert(alta);
 	document.location.href = url;      
 }
-
+function listMateriaPrima(path)
+{
+	var url = path + "/MateriasPrimasFormController2.htm?method=listMateriasPrimas";  
+	//alert(alta);
+	document.location.href = url;      
+}
 
 
 //--------------------USUARIOS------------------------------------------------
