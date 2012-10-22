@@ -68,6 +68,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
                  <entry key="/administrarSucursales.htm">
                     <ref bean="SucursalesFormController" />
                 </entry>
+                 <entry key="/MateriasPrimasFormController2.htm">
+                    <ref bean="MateriasPrimasFormController2" />
+                </entry>
             </map>
         </property>
     </bean>
@@ -167,6 +170,14 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	<bean id="ActivarUsuariosController" class="com.apce.web.controller.ActivarUsuariosController" />
 	
 	<bean id="SucursalesFormController" class="com.apce.web.controller.SucursalesFormController">
+    	<property name="methodNameResolver">
+        	<bean class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+            	<property name="paramName" value="method"/>
+        	</bean>
+    	</property>
+	</bean>
+	
+	<bean id="MateriasPrimasFormController2" class="com.apce.web.controller.MateriasPrimasFormController2">
     	<property name="methodNameResolver">
         	<bean class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
             	<property name="paramName" value="method"/>

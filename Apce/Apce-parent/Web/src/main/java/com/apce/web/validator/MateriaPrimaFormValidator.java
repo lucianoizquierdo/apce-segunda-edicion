@@ -23,20 +23,20 @@ public class MateriaPrimaFormValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		// TODO Auto-generated method stub
 		
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "codigoMateriaPrima", "error.registracion.nombreVacio");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "tipo", "error.registracion.nombreVacio");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "tamanio", "error.registracion.apellidoVacio");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "color", "error.registracion.sucursalVacio");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "descripcion", "error.registracion.dniVacio");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "kilos", "error.registracion.fechaNacimiento");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "litros", "error.registracion.telefonoVacio");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "codigoMateriaPrima", "materiaPrimaForm.codigoMateriaPrima.vacio");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "tipo", "materiaPrimaForm.tipo.vacio");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "tamanio", "materiaPrimaForm.tamanio.vacio");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "color", "materiaPrimaForm.color.vacio");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "descripcion", "materiaPrimaForm.descripcion.vacio");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "kilos", "materiaPrimaForm.kilos.vacio");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "litros", "materiaPrimaForm.litros.vacio");
 		
 		MateriaPrimaForm materiaPrimaForm = (MateriaPrimaForm) target;
 		
 		String codigoMateriaPrima = materiaPrimaForm.getCodigoMateriaPrima();
 		boolean existeMateriaPrima = materiaPrimaService.existeMateriaPrima(codigoMateriaPrima);
 		if(existeMateriaPrima)
-			errors.rejectValue("codigoMateriaPrima","error.materiasPrimas.materiaPrimaExistente");
+			errors.rejectValue("codigoMateriaPrima","materiaPrimaForm.error.materiaPrimaExistente");
 	}
 
 }
