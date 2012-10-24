@@ -1,7 +1,22 @@
+.displayTable th.hacktd{ color:#fff; font-size: 13px;
+	margin: 0 0 0 10px;
+	padding: 0 0 0 10px;
+}
 
+.maxwidth{ width: 100%; }
 
-  
 /*
+.displayTable th
+{
+	background: url(../images/table/table_header_repeat.jpg) repeat-x;
+	border: none;
+	font-size: 0px;
+	line-height: 0;
+	padding: 0px 0 0 0;
+	line-left
+	min-width: 110px;
+}
+  
 .displayTable table {
 	border: 1px solid #666;
 	width: 80%;
